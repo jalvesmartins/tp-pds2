@@ -123,5 +123,7 @@
         else return false;   
     }
 
-    void Lig4::printGame (){}
+    void Lig4::printGame (){
+        
+    }
 

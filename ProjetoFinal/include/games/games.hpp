@@ -25,6 +25,7 @@ class Games {
       }
 
       virtual void printGame () = 0;
-      virtual void readPlay () = 0;
+      virtual std::pair<int, int> readPlay () = 0;
+      virtual void verifyPlay () = 0;
       virtual void verifyWin() = 0;
 };

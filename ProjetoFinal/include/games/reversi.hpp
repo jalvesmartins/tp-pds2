@@ -11,7 +11,7 @@ class Reversi : public Games {
 
     virtual std::pair<int, int> readPlay () override = 0;
     virtual bool verifyPlay (std::pair<int, int> play) override = 0;
-    virtual void verifyWin () override = 0;
-    virtual void makePlay () override = 0;
+    virtual bool verifyWin (std::pair<int,int> play) override = 0;
+    virtual void makePlay (std::pair<int,int> play, char symbol) override = 0;
     virtual void printGame () override = 0;
 };

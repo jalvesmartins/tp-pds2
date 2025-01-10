@@ -11,7 +11,7 @@ class TickTackToe : public Games {
 
     virtual std::pair<int, int> readPlay () override;
     virtual bool verifyPlay (std::pair<int, int> play) override = 0;
-    virtual void verifyWin () override;
-    virtual void makePlay () override;
+    virtual bool verifyWin (std::pair<int,int> play) override;
+    virtual void makePlay (std::pair<int,int> play, char symbol) override;
     virtual void printGame () override;
 };

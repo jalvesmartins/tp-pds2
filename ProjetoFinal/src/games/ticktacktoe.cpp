@@ -29,3 +29,35 @@ bool TickTackToe::verifyPlay (std::pair<int,int> play) {
 void TickTackToe::makePlay (std::pair<int,int> play, char symbol) {
   board[play.first][play.second] = symbol;
 }
+
+bool TickTackToe::verifyWin (std::pair<int,int> play) {
+  if (board[play.first][0] == board[play.first][1] && board[play.first][1] == board[play.first][2]) {
+    return true;
+
+  } else if (board[0][play.second] == board[1][play.second] && board[1][play.second] == board[2][play.second]) {
+    return true;
+
+  } else if (play.first == play.second && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+    return true;
+
+  } else if ((play.first + play.second == 2) && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+    return true;
+
+  } else {
+    return false;
+  }
+}
+
+void TickTackToe::printGame () {
+  for (int i=0; i<3; i++) {
+    for (int j=0; j<3; j++) {
+        if(j == 0) {
+          std::cout << "|";
+        }
+
+        std::cout << " " << (board[i][j] == '\0' ? ' ' : board[i][j]) << " |";
+    }
+    std::cout << std::endl;
+  }
+  std::cout << std::endl;
+}

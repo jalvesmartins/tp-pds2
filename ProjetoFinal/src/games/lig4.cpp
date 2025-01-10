@@ -124,6 +124,17 @@
     }
 
     void Lig4::printGame (){
-        
-    }
+
+         for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                if(j == 0) {
+                    std::cout << "|";
+                }
+
+            std::cout << " " << (board[i][j] == '\0' ? ' ' : board[i][j]) << " |";
+        }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+}
 

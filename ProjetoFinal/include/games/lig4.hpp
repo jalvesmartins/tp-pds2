@@ -8,8 +8,8 @@ class Lig4 : public Games {
 //  Lig4 (int rows, int columns) {}
 
     virtual std::pair<int, int> readPlay () override;
-    virtual bool verifyPlay (std::pair<int, int> play) override = 0;
-    virtual bool verifyWin (std::pair<int,int> play) override = 0;
+    virtual bool verifyPlay (std::pair<int, int> play) override;
+    virtual bool verifyWin (std::pair<int,int> play) override;
     virtual void makePlay (std::pair<int,int> play, char symbol) override;
-    virtual void printGame () override = 0;
+    virtual void printGame () override;
 };

@@ -9,6 +9,7 @@ class Lig4 : public Games {
 
     virtual std::pair<int, int> readPlay () override;
     virtual bool verifyPlay (std::pair<int, int> play) override;
+    std::pair<int, int> verifyPlayColumn(std::pair<int, int> play);
     virtual bool verifyWin (std::pair<int,int> play) override;
     virtual void makePlay (std::pair<int,int> play, char symbol) override;
     virtual void printGame () override;

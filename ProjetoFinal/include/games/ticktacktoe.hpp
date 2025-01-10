@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ProjetoFinal/include/games/games.hpp"
+#include "./games.hpp"
 
 #include <iostream>
 
@@ -9,9 +9,9 @@ class TickTackToe : public Games {
     TickTackToe () : Games(3,3) {}
 //  TickTackToe (int rows, int columns) {}
 
-    virtual std::pair<int, int> readPlay () override;
-    virtual bool verifyPlay (std::pair<int, int> play) override = 0;
-    virtual bool verifyWin (std::pair<int,int> play) override;
-    virtual void makePlay (std::pair<int,int> play, char symbol) override;
-    virtual void printGame () override;
+    std::pair<int, int> readPlay () override;
+    bool verifyPlay (std::pair<int, int> play) override;
+    bool verifyWin (std::pair<int,int> play) override;
+    void makePlay (std::pair<int,int> play, char symbol) override;
+    void printGame () override;
 };

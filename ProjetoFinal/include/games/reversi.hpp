@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ProjetoFinal/include/games/games.hpp"
+#include "./games.hpp"
 
 #include <iostream>
 
@@ -9,9 +9,9 @@ class Reversi : public Games {
     Reversi () : Games(8,8) {}
 //  Reversu (int rows, int columns) {}
 
-    virtual std::pair<int, int> readPlay () override = 0;
-    virtual bool verifyPlay (std::pair<int, int> play) override = 0;
-    virtual bool verifyWin (std::pair<int,int> play) override = 0;
-    virtual void makePlay (std::pair<int,int> play, char symbol) override = 0;
-    virtual void printGame () override = 0;
+    std::pair<int, int> readPlay () override;
+    bool verifyPlay (std::pair<int, int> play) override;
+    bool verifyWin (std::pair<int,int> play) override;
+    void makePlay (std::pair<int,int> play, char symbol) override;
+    void printGame () override;
 };

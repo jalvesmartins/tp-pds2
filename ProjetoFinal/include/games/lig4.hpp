@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ProjetoFinal/include/games/games.hpp"
+#include "./games.hpp"
 
 class Lig4 : public Games {
   public:

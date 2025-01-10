@@ -9,8 +9,9 @@ class TickTackToe : public Games {
     TickTackToe () : Games(3,3) {}
 //  TickTackToe (int rows, int columns) {}
 
-    virtual void printGame () override;
     virtual std::pair<int, int> readPlay () override;
-    virtual void verifyPlay () override = 0;
+    virtual bool verifyPlay (std::pair<int, int> play) override = 0;
     virtual void verifyWin () override;
+    virtual void makePlay () override;
+    virtual void printGame () override;
 };

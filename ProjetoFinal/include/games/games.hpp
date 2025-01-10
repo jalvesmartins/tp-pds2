@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Games {
     protected:
       char** board;
@@ -24,8 +26,9 @@ class Games {
         delete[] board;
       }
 
-      virtual void printGame () = 0;
       virtual std::pair<int, int> readPlay () = 0;
-      virtual void verifyPlay () = 0;
+      virtual bool verifyPlay (std::pair<int, int> play) = 0;
+      virtual void makePlay () = 0;
       virtual void verifyWin() = 0;
+      virtual void printGame () = 0;
 };

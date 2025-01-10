@@ -9,8 +9,9 @@ class Reversi : public Games {
     Reversi () : Games(8,8) {}
 //  Reversu (int rows, int columns) {}
 
-    virtual void printGame () override = 0;
     virtual std::pair<int, int> readPlay () override = 0;
-    virtual void verifyPlay () override = 0;
+    virtual bool verifyPlay (std::pair<int, int> play) override = 0;
     virtual void verifyWin () override = 0;
+    virtual void makePlay () override = 0;
+    virtual void printGame () override = 0;
 };

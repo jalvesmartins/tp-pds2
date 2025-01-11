@@ -2,7 +2,7 @@
 #define REGISTRATION_HPP
 
 #include <string>
-#include "Player.hpp"
+#include "player.hpp"
 
 class Registration {
 private:

@@ -1,11 +1,11 @@
-#include "../ProjetoFinal/include/games/lig4.hpp"
+#include "../../include/games/lig4.hpp"
 #include <iostream>
 
 
     std::pair<int, int> Lig4::readPlay (){
         int playRow, playColumn = 0;
         std::cin >> playColumn;
-        return {5, playColumn};
+        return {5, playColumn - 1};
     }
 
     std::pair<int, int> Lig4::verifyPlayColumn(std::pair<int, int> play){
@@ -16,12 +16,11 @@
     }
 
     bool Lig4::verifyPlay (std::pair<int, int> play){   
-        play = verifyPlayColumn(play);
         if(play.first >= board.getRows() || play.second >= board.getColumns() || play.second < 0 || play.first < 0){
-            std::cout << "ERRO: formato incorreto";
+            std::cout << "ERRO: formato incorreto" << std::endl;
             return false;
         } else if(board.getBoard()[play.first][play.second] != ' ') {
-            std::cout << "ERRO: jogada inválida";
+            std::cout << "ERRO: jogada inválida" << std::endl;
             return false;
         } else {
             return true;
@@ -143,14 +142,16 @@
             return "";
             }
 
-            std::cout << "Turno de jogador " << player << " (Coluna)" << std::endl << std::endl;
-            std::pair coordinates = readPlay();
+            std::cout << "Turno de jogador " << player << " (Escolha uma Coluna: 1 a 7)" << std::endl << std::endl;
+            std::pair<int, int> coordinates = readPlay();
+            coordinates = verifyPlayColumn(coordinates);
             bool playPossibility = verifyPlay(coordinates);
 
             if (!playPossibility) {
             continue;
             }
 
+            playCount ++;
             board.makePlay(coordinates, playingSymbol);
 
             if (playCount > 6 && verifyWin(coordinates)) {
@@ -164,8 +165,6 @@
             switchSymbol(playingSymbol);
             switchPlayer(player, players);
             }
-            
-            playCount ++;
         }
         return "";
     }

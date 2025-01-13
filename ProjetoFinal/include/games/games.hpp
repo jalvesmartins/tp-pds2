@@ -1,29 +1,24 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
+#include "./board.hpp"
 
 class Games {
     protected:
-      char** board;
-      int columns;
-      int rows;
+      Board board;
     
     public:
-      Games () : Games(0,0) {}
+      Games () : board() {}
 
-      Games (int rows, int columns) : rows(rows), columns(columns) {
-        board = new char*[rows];
-        for (int i = 0; i < rows; ++i) {
-            board[i] = new char[columns]();
-        }
-      }
+      Games (int rows, int columns) : board(rows, columns) {}
 
       virtual ~Games() {
-        for (int i = 0; i < rows; ++i) {
+        for (int i = 0; i < board.getRows(); ++i) {
             delete[] board[i];
         }
 
-        delete[] board;
+        delete[] board.getBoard ();
       }
 
       virtual std::pair<int, int> readPlay () = 0;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "./games.hpp"
-
+#include <vector>
 #include <iostream>
 
 class TickTackToe : public Games {

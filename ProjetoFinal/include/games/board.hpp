@@ -1,32 +1,31 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
 class Board {
     private:
-      char** board;
+      std::vector<std::vector<char>> board;
       int rows;
       int columns;
     
     public:
-      Board () : Board(0,0) {}
+      Board () {
+        std::cout << "ERRO: Tamanho inválido de tabuleiro" << std::endl;
+      }
 
       Board (int rows, int columns) : rows(rows), columns(columns) {
-        board = new char*[rows];
-        for (int i = 0; i < rows; ++i) {
-            board[i] = new char[columns]();
+        for(int i = 0; i < rows; i++) {
+          std::vector<char> row(columns, ' ');
+          board.push_back(row);
         }
       }
 
-      virtual ~Board() {
-        for (int i = 0; i < rows; ++i) {
-            delete[] board[i];
-        }
-        delete[] board;
-      }
+      virtual ~Board() {}
 
       int getRows ();
       int getColumns ();
+      std::vector<std::vector<char>> getBoard ();
       void makePlay (std::pair<int,int> play, char symbol);
       void printBoard ();
 };

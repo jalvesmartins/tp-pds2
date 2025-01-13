@@ -56,3 +56,44 @@ bool Reversi::verifyVertical (std::pair<int,int> play, Board &board) {
         return false;
     }
 }
+
+bool Reversi::verifyHorizontal (std::pair<int,int> play, Board &board) {
+    int verifier = 0;
+    //Verifica se o char da esquerda é da cor diferente do da jogada
+    if (play.second>1 &&
+        board.getBoard()[play.first][play.second - 1] != board.getBoard()[play.first][play.second]) {
+        //Entra em um loop até encontrar um char da mesma cor da jogada
+        for (int i = play.second-2; i>=0; i--) {
+            if (board.getBoard()[play.first][i] == ' ') {
+                break;
+            } else if (board.getBoard()[play.first][i] == board.getBoard()[play.first][play.second]) {
+                //Faz a jogada após verificar que é valida
+                for (int j = i; j<play.second; j++) {
+                    board.makePlay({play.first,j}, board.getBoard()[play.first][play.second]);
+                }
+                verifier++;
+            }
+            }
+
+    //Verifica se o char a direita é da cor diferente do da jogada
+    } else if (play.second<6 &&
+                 board.getBoard()[play.first][play.second + 1] != board.getBoard()[play.first][play.second]) {
+         //Entra em um loop até encontrar um char da mesma cor da jogada
+        for (int i = play.second+2; i<8; i++) {
+            if (board.getBoard()[play.first][i] == ' ') {
+                break;
+            } else if (board.getBoard()[play.first][i] == board.getBoard()[play.first][play.second]) {
+                //Faz a jogada após verificar que é valida
+                for (int j = i; j>play.second; j--) {
+                    board.makePlay({play.first,j}, board.getBoard()[play.first][play.second]);
+                }
+                return true;
+            }
+        }    
+    } else {
+        if (verifier > 0) {
+            return true;
+        }
+        return false;
+    }
+}

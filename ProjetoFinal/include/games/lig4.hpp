@@ -11,6 +11,7 @@ class Lig4 : public Games {
     virtual bool verifyPlay (std::pair<int, int> play) override;
     std::pair<int, int> verifyPlayColumn(std::pair<int, int> play);
     virtual bool verifyWin (std::pair<int,int> play) override;
-    virtual void makePlay (std::pair<int,int> play, char symbol) override;
-    virtual void printGame () override;
+    void switchSymbol (char& symbol) override;
+    void switchPlayer (std::string& playing, std::pair<std::string,std::string> players) override;
+    std::string executeGame (std::pair<std::string,std::string> players) override;
 };

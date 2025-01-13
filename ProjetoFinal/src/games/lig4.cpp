@@ -9,7 +9,7 @@
     }
 
     std::pair<int, int> Lig4::verifyPlayColumn(std::pair<int, int> play){
-        while (play.first >= 0 && board[play.first][play.second] != '\0'){
+        while (play.first >= 0 && board.getBoard()[play.first][play.second] != ' '){
             play.first--;
         }
         return play;
@@ -17,21 +17,14 @@
 
     bool Lig4::verifyPlay (std::pair<int, int> play){   
         play = verifyPlayColumn(play);
-        if(play.first >= rows || play.second >= columns || play.second < 0 || play.first < 0){
+        if(play.first >= board.getRows() || play.second >= board.getColumns() || play.second < 0 || play.first < 0){
             std::cout << "ERRO: formato incorreto";
             return false;
-        } else if(board[play.first][play.second] != '\0') {
+        } else if(board.getBoard()[play.first][play.second] != ' ') {
             std::cout << "ERRO: jogada inválida";
             return false;
         } else {
             return true;
-        }
-    }
-
-
-    void Lig4::makePlay (std::pair<int,int> play, char symbol){
-        if (verifyPlay(play)){
-            board[play.first][play.second] = symbol;
         }
     }
 
@@ -42,14 +35,14 @@
         //Para esquerda
         int horizontal_sequence = 1;
         int column = play.second - 1;
-        while (column >= 0 && board[play.first][column] == board[play.first][play.second]) {
+        while (column >= 0 && board.getBoard()[play.first][column] == board.getBoard()[play.first][play.second]) {
             horizontal_sequence++;
             column--;
         }
 
         //Para direita
         column = play.second + 1;
-        while (column <= 6 && board[play.first][column] == board[play.first][play.second]){
+        while (column <= 6 && board.getBoard()[play.first][column] == board.getBoard()[play.first][play.second]){
             horizontal_sequence++;
             column++;
         }
@@ -59,14 +52,14 @@
         //Para baixo
         int vertical_sequence = 1;
         int row = play.first + 1;
-        while(row <= 5 && board[row][play.second] == board[play.first][play.second]){
+        while(row <= 5 && board.getBoard()[row][play.second] == board.getBoard()[play.first][play.second]){
             vertical_sequence++;
             row++;
         }
 
         //Para cima 
         row = play.first - 1;
-        while (row >= 0 && board[row][play.second] == board[play.first][play.second]){
+        while (row >= 0 && board.getBoard()[row][play.second] == board.getBoard()[play.first][play.second]){
             vertical_sequence++;
             row--;
         }
@@ -80,7 +73,7 @@
         //Acima da peça
         row = play.first - 1;
         column = play.second + 1;
-        while (row >= 0 && column <= 6 && board[row][column] == board[play.first][play.second]){
+        while (row >= 0 && column <= 6 && board.getBoard()[row][column] == board.getBoard()[play.first][play.second]){
             row--;
             column++;
             diagonal1_sequence++;
@@ -89,7 +82,7 @@
         //Abaixo da peça
         row = play.first + 1;
         column = play.second - 1;
-        while (row <= 5 && column >= 0 && board[row][column] == board[play.first][play.second]){
+        while (row <= 5 && column >= 0 && board.getBoard()[row][column] == board.getBoard()[play.first][play.second]){
             row++;
             column--;
             diagonal1_sequence++;
@@ -101,7 +94,7 @@
         //Acima da peça
         row = play.first - 1;
         column = play.second - 1;
-        while(row >= 0 && column >= 0 && board[row][column] == board[play.first][play.second]){
+        while(row >= 0 && column >= 0 && board.getBoard()[row][column] == board.getBoard()[play.first][play.second]){
             row--;
             column--;
             diagonal2_sequence++;
@@ -110,7 +103,7 @@
         //Abaixo da peça
         row = play.first + 1;
         column = play.second + 1;
-        while(row <= 5 && column <= 6 && board[row][column] == board[play.first][play.second]){
+        while(row <= 5 && column <= 6 && board.getBoard()[row][column] == board.getBoard()[play.first][play.second]){
             row++;
             column++;
             diagonal2_sequence++;
@@ -123,18 +116,58 @@
         else return false;   
     }
 
-    void Lig4::printGame (){
+    void Lig4::switchSymbol (char& symbol) {
+    symbol = (symbol == 'X') ? 'O' : 'X';
+    }
 
-         for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 7; j++) {
-                if(j == 0) {
-                    std::cout << "|";
-                }
+    void Lig4::switchPlayer (std::string& playing, std::pair<std::string,std::string> players) {
+    playing = (playing == players.first) ? players.second : players.first;
+    }
 
-            std::cout << " " << (board[i][j] == '\0' ? ' ' : board[i][j]) << " |";
+    std::string Lig4::executeGame (std::pair<std::string,std::string> players){
+        int playCount = 0;
+        bool win = false;
+
+        std::cout << "Símbolo do" << players.first << ": X" << std::endl;
+        std::cout << "Símbolo do" << players.second << ": O" << std::endl << std::endl;
+
+        std::string player = players.first;
+        char playingSymbol = 'X';
+
+        std::cout << "Iniciando partida:" << std::endl << std::endl;
+        board.printBoard();
+
+        while (!win) {
+            if (playCount > 41) {
+            std::cout << "Jogo terminou empatado! Tente outra vez." << std::endl << std::endl;
+            return "";
+            }
+
+            std::cout << "Turno de jogador " << player << " (Coluna)" << std::endl << std::endl;
+            std::pair coordinates = readPlay();
+            bool playPossibility = verifyPlay(coordinates);
+
+            if (!playPossibility) {
+            continue;
+            }
+
+            board.makePlay(coordinates, playingSymbol);
+
+            if (playCount > 6 && verifyWin(coordinates)) {
+            win = true;
+            board.printBoard();
+            std::cout << "Parabéns " << player << ", você venceu! Execute outra partida." << std::endl << std::endl;
+            return player;
+
+            } else {
+            board.printBoard();
+            switchSymbol(playingSymbol);
+            switchPlayer(player, players);
+            }
+            
+            playCount ++;
         }
-            std::cout << std::endl;
-        }
-        std::cout << std::endl;
-}
+        return "";
+    }
+
 

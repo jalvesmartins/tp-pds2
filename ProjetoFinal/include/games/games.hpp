@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include "./board.hpp"
 
 class Games {
@@ -18,5 +19,7 @@ class Games {
       virtual std::pair<int, int> readPlay () = 0;
       virtual bool verifyPlay (std::pair<int, int> play) = 0;
       virtual bool verifyWin (std::pair<int,int> play) = 0;
-      virtual void executeGame () = 0;
+      virtual void switchSymbol (char& symbol) = 0;
+      virtual void switchPlayer (std::string& playing, std::pair<std::string,std::string> players) = 0;
+      virtual std::string executeGame (std::pair<std::string,std::string> players) = 0;
 };

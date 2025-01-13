@@ -12,5 +12,7 @@ class TickTackToe : public Games {
     std::pair<int, int> readPlay () override;
     bool verifyPlay (std::pair<int, int> play) override;
     bool verifyWin (std::pair<int,int> play) override;
-    void executeGame () override;
+    void switchSymbol (char& symbol) override;
+    void switchPlayer (std::string& playing, std::pair<std::string,std::string> players) override;
+    std::string executeGame (std::pair<std::string,std::string> players) override;
 };

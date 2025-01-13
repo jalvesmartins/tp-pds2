@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 
+
 std::pair<int, int> TickTackToe::readPlay () {
   int playRow = 0;
   int playColumn = 0;
@@ -18,7 +19,7 @@ bool TickTackToe::verifyPlay (std::pair<int,int> play) {
     std::cout << "ERRO: formato incorreto" << std::endl;
     return false;
 
-  } else if (board.getBoard()[play.first][play.second] != '\0') {
+  } else if (board.getBoard()[play.first][play.second] != ' ') {
     std::cout << "ERRO: jogada inválida" << std::endl;
     return false;
 
@@ -43,4 +44,58 @@ bool TickTackToe::verifyWin (std::pair<int,int> play) {
   } else {
     return false;
   }
+}
+
+void TickTackToe::switchSymbol (char& symbol) {
+  symbol = (symbol == 'X') ? 'O' : 'X';
+}
+
+void TickTackToe::switchPlayer (std::string& playing, std::pair<std::string,std::string> players) {
+  playing = (playing == players.first) ? players.second : players.first;
+}
+
+std::string TickTackToe::executeGame (std::pair<std::string,std::string> players) {
+  int playCount = 0;
+  bool win = false;
+
+  std::cout << "Símbolo do" << players.first << ": X" << std::endl;
+  std::cout << "Símbolo do" << players.second << ": O" << std::endl << std::endl;
+
+  std::string player = players.first;
+  char playingSymbol = 'X';
+
+  std::cout << "Iniciando partida:" << std::endl << std::endl;
+  board.printBoard();
+
+  while (!win) {
+    if (playCount > 8) {
+      std::cout << "Jogo terminou empatado! Tente outra vez." << std::endl << std::endl;
+      return "";
+    }
+
+    std::cout << "Turno de jogador " << player << " (Linha Coluna)" << std::endl << std::endl;
+    std::pair coordinates = readPlay();
+    bool playPossibility = verifyPlay(coordinates);
+
+    if (!playPossibility) {
+      continue;
+    }
+
+    board.makePlay(coordinates, playingSymbol);
+
+    if (playCount > 4 && verifyWin(coordinates)) {
+      win = true;
+      board.printBoard();
+      std::cout << "Parabéns " << player << ", você venceu! Execute outra partida." << std::endl << std::endl;
+      return player;
+
+    } else {
+      board.printBoard();
+      switchSymbol(playingSymbol);
+      switchPlayer(player, players);
+    }
+
+    playCount ++;
+  }
+  return "";
 }

@@ -15,6 +15,7 @@ void Board::makePlay (std::pair<int,int> play, char symbol) {
 }
 
 void Board::printBoard () {
+  std::cout << std::endl;
   for (int i=0; i<3; i++) {
     for (int j=0; j<3; j++) {
       if(j == 0) {

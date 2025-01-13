@@ -15,17 +15,14 @@ class Board {
       }
 
       Board (int rows, int columns) : rows(rows), columns(columns) {
-        for(int i = 0; i < rows; i++) {
-          std::vector<char> row(columns, ' ');
-          board.push_back(row);
-        }
+        board.resize(rows, std::vector<char>(columns, ' '));
       }
 
       virtual ~Board() {}
 
       int getRows ();
       int getColumns ();
-      std::vector<std::vector<char>> getBoard ();
+      std::vector<std::vector<char>>& getBoard ();
       void makePlay (std::pair<int,int> play, char symbol);
       void printBoard ();
 };

@@ -16,12 +16,12 @@ void Board::makePlay (std::pair<int,int> play, char symbol) {
 
 void Board::printBoard () {
   std::cout << std::endl;
-  for (int i=0; i<3; i++) {
-    for (int j=0; j<3; j++) {
+  for (int i=0; i< rows; i++) {
+    for (int j=0; j< columns; j++) {
       if(j == 0) {
         std::cout << "|";
       }
-      std::cout << " " << (board[i][j]) << " |";
+      std::cout << " " << board[i][j] << " |";
     }
     std::cout << std::endl;
   }

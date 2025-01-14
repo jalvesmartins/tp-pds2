@@ -1,10 +1,6 @@
 #include "../../include/games/games.hpp"
 #include "../../include/games/ticktacktoe.hpp"
 
-#include <iostream>
-#include <vector>
-
-
 std::pair<int, int> TickTackToe::readPlay () {
   int playRow = 0;
   int playColumn = 0;

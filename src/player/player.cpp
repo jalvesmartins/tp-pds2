@@ -12,6 +12,8 @@ Player::Player(std::string nick, std::string nm)
 Player::Player(std::string nick, std::string nm, std::map<std::string, std::pair<int, int>> stats) 
     : nickname(nick), name(nm), statistics(stats) {}
 
+Player::~Player() {}
+
 void Player::updateStatistics(const std::string& game, bool isWin) {
     if (isWin) {
         statistics[game].first++;

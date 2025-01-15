@@ -14,6 +14,7 @@ private:
 public:
     Player(std::string nick, std::string nm);
     Player(std::string nick, std::string nm, std::map<std::string, std::pair<int, int>> stats);
+    ~Player();
 
     void setNickname(std::string nick) { this->nickname = nick; }
     void setName(std::string nm) { this->name = nm; }

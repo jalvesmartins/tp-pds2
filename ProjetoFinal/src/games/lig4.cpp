@@ -1,10 +1,22 @@
 #include "../../include/games/lig4.hpp"
 #include <iostream>
+#include <limits>
 
 
     std::pair<int, int> Lig4::readPlay (){
         int playRow, playColumn = 0;
-        std::cin >> playColumn;
+
+    while (true) {
+        // Verifica se a entrada é válida
+        if (!(std::cin >> playColumn)) {
+            // Caso a entrada não seja válida, limpa o erro e o buffer
+            std::cin.clear();  // Limpa o estado de erro
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignora o restante da linha
+            std::cout << "ERRO: Jogada inválida, insira um número inteiro." << std::endl;
+            continue;
+        }
+    break;
+    }
         return {5, playColumn - 1};
     }
 

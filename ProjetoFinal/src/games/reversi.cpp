@@ -219,3 +219,29 @@ bool Reversi::verifyPlayWithoutPrint (std::pair<int,int> play, char& playingSymb
     return true;
   }
 }
+
+bool Reversi::checkGameOver() {
+    bool player1HasValidMove = false;
+    bool player2HasValidMove = false;
+    char x = 'X';
+    char o = 'O';
+    //Itera por todo o tabuleiro para verificar se existem jogadas válidas
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            //Verifica se o jogador 1 ('X') tem uma jogada válida
+            if (board.getBoard()[i][j] == ' ' && verifyPlayWithoutPrint(std::make_pair(i, j), x)) {
+                player1HasValidMove = true;
+            }
+            //Verifica se o jogador 2 ('O') tem uma jogada válida
+            if (board.getBoard()[i][j] == ' ' && verifyPlayWithoutPrint(std::make_pair(i, j), o)) {
+                player2HasValidMove = true;
+            }
+            //Se ambos os jogadores tiverem jogadas válidas, o jogo ainda não terminou
+            if (player1HasValidMove && player2HasValidMove) {
+                return false;// O jogo não terminou
+            }
+        }
+    }
+    //Se não houver jogadas válidas para ambos os jogadores, o jogo terminou
+    return true; // O jogo terminou
+}

@@ -21,7 +21,7 @@ void Board::printBoard () {
       if(j == 0) {
         std::cout << "|";
       }
-      std::cout << " " << (board[i][j]) << " |";
+      std::cout << " " << board[i][j] << " |";
     }
     std::cout << std::endl;
   }

@@ -92,3 +92,23 @@ bool Reversi::verifyHorizontalRight (std::pair<int,int> play, std::vector<std::v
     }
     return false;
 }
+
+bool Reversi::verifyDiagonalUp (std::pair<int,int> play, std::vector<std::vector<char>>& board, char& playingSymbol) {
+    //Verifica se é possível sequência para a diagonal para cima
+    if (play.first > 1 && play.second > 1) {
+        //Verifica se o char da diagnonal pra cima é da cor diferente do da jogada
+        if (board[play.first - 1][play.second - 1] != playingSymbol) {
+            //Entra em um loop até encontrar um char da mesma cor da jogada
+            int k = play.first - 1;
+            for (int i = play.second-1; i >= 0 && k >= 0; i--) {
+                if (board[k][i] == ' ') {
+                    return false;
+                } else if (board[k][i] == playingSymbol) {
+                    return true;;
+                }
+                k--;
+            }
+        }
+    }
+    return false;
+}

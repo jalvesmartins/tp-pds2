@@ -369,3 +369,69 @@ void Reversi::switchSymbol (char& symbol) {
 void Reversi::switchPlayer (std::string& playing, std::pair<std::string,std::string> players) {
   playing = (playing == players.first) ? players.second : players.first;
 }
+
+std::string Reversi::executeGame (std::pair<std::string,std::string> players) {
+int playCount = 0;
+bool win = false;
+char player1 = 'X';
+char player2 = 'O';
+
+std::cout << "Símbolo do " << players.first << ": X" << std::endl;
+std::cout << "Símbolo do " << players.second << ": O" << std::endl << std::endl;
+
+std::string player = players.first;
+char playingSymbol = 'X';
+
+std::cout << "Iniciando partida:" << std::endl << std::endl;
+board.printBoard();
+
+while (!win) {
+//Verifica empate
+if (checkGameOver() && (verifyWinSpecial() == ' ')) {
+std::cout << "Jogo terminou empatado! Tente outra vez." << std::endl << std::endl;
+return "";
+}
+
+//Lê a jogada e verifica ela
+std::cout << "Turno de jogador " << player << " (Linha Coluna)" << std::endl << std::endl;
+std::pair coordinates = readPlay();
+bool playPossibility = verifyPlayAdapted(coordinates, playingSymbol);
+
+if (!playPossibility) {
+continue;
+}
+
+//Faz a jogada
+makePlay(coordinates, playingSymbol);
+
+//Verifica se acabou o jogo e se sim retorna o vencedor
+if (checkGameOver()) {
+win = true;
+std::string winner = (verifyWinSpecial() == player1) ? winner = players.first : winner = players.second;
+board.printBoard();
+std::cout << "Parabéns " << winner << ", você venceu! Execute outra partida." << std::endl << std::endl;
+return winner;
+
+//Continua a partida e troca a vez
+} else {
+board.printBoard();
+switchSymbol(playingSymbol);
+switchPlayer(player, players);
+}
+
+playCount ++;
+}
+
+return "";
+}
+
+
+
+
+bool Reversi::verifyWin (std::pair<int,int> play) {
+    return true;
+}
+
+bool Reversi::verifyPlay (std::pair<int,int> play) {
+    return true;
+}

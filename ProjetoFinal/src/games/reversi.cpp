@@ -245,3 +245,30 @@ bool Reversi::checkGameOver() {
     //Se não houver jogadas válidas para ambos os jogadores, o jogo terminou
     return true; // O jogo terminou
 }
+
+char Reversi::verifyWinSpecial () {
+    int xCount = 0;
+    int oCount = 0;
+    char winner = ' ';
+
+    //Faz a contagem de todas as peças
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            //Verifica se o char na posição é igual a 'X'
+            if (board.getBoard()[i][j] == 'X') {
+                xCount++;;
+            }
+            //Verifica se o char na posição é igual a 'O'
+            if (board.getBoard()[i][j] == 'O') {
+                oCount++;;
+            }
+        }
+    }
+    if (oCount == xCount) {
+        return winner; // Retorna o símbolo vencedor
+    } else {
+    winner = (xCount > oCount) ? winner = 'X' : winner = 'O';
+    }
+
+return winner; // Retorna o símbolo vencedor
+}

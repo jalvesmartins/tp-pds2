@@ -56,3 +56,21 @@ bool Reversi::verifyVerticalDown (std::pair<int,int> play, std::vector<std::vect
     }
     return false;
 }
+
+bool Reversi::verifyHorizontalLeft (std::pair<int,int> play, std::vector<std::vector<char>>& board, char& playingSymbol) {
+    //Verifica se é possível sequência para a esquerda
+    if (play.second > 1) {
+        //Verifica se o char da esquerda é da cor diferente do da jogada
+        if (board[play.first][play.second - 1] != playingSymbol) {
+            //Entra em um loop até encontrar um char da mesma cor da jogada
+            for (int i = play.second - 1; i >= 0; i--) {
+                if (board[play.first][i] == ' ') {
+                    return false;
+                } else if (board[play.first][i] == playingSymbol) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}

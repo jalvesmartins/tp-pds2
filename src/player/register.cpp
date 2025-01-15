@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <regex>
 
 // Construtor (garante que o arquivo existe)
 Registration::Registration() {
@@ -34,11 +35,31 @@ std::string Registration::findPlayerLine(const std::string& nickname) {
     return ""; // Jogador não encontrado
 }
 
-bool Registration::registerPlayer(const std::string& nickname, const std::string& name) {
-    if (!findPlayerLine(nickname).empty()) {
-        std::cerr << "ERRO: Apelido já existe.\n";
-        return false;
+bool Registration::registerPlayer( std::string& nickname, std::string& name) {
+    std::regex validNicknamePattern("^[\\w]+$");
+    // Loop para garantir que o apelido seja válido e único
+    while (true) {
+        std::cout << "Digite o apelido: ";
+        std::cin >> nickname;
+
+        // Verifica se o apelido é válido
+        if (!std::regex_match(nickname, validNicknamePattern)) {
+            std::cerr << "ERRO: Apelido inválido, espaço não permitido. Caracteres permitidos: letras maiusculas e minusculas(sem acentuação), numeros e underscore(_).\n";
+            continue; // Volta para pedir o apelido novamente
+        }
+
+        // Verifica se o apelido já existe
+        if (!findPlayerLine(nickname).empty()) {
+            std::cerr << "ERRO: Apelido já existe. Tente novamente.\n";
+            continue; // Volta para pedir o apelido novamente
+        }
+
+        // Se passou pelas verificações, apelido válido e único, sai do loop
+        break;
     }
+
+    std::cout << "Digite seu nome: ";
+    std::getline(std::cin, name);
 
     std::ofstream outFile(file, std::ios::app); // Abre para adicionar no final do arquivo
     if (outFile.is_open()) {

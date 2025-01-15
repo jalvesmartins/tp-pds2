@@ -272,3 +272,91 @@ char Reversi::verifyWinSpecial () {
 
 return winner; // Retorna o símbolo vencedor
 }
+
+void Reversi::makePlay (std::pair<int,int> coordinates, char& playingSymbol) {
+    
+//Faz a jogada na coordenada
+board.getBoard()[coordinates.first][coordinates.second] = playingSymbol;
+
+//Para cada direção confere se há uma jogada válida, e se há, faz a jogada nessa direção até chegar em um char igual
+if (verifyVerticalUp(coordinates, board.getBoard(), playingSymbol)) {
+    for (int i = coordinates.first-1; i >= 0; i--) {
+        if (board.getBoard()[i][coordinates.second] == 
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[i][coordinates.second] = playingSymbol;
+    }
+}
+if (verifyVerticalDown(coordinates, board.getBoard(), playingSymbol)) {
+    for (int i = coordinates.first+1; i < 8; i++) {
+        if (board.getBoard()[i][coordinates.second] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[i][coordinates.second] = playingSymbol;
+    }
+}
+if (verifyHorizontalLeft(coordinates, board.getBoard(), playingSymbol)) {
+    for (int i = coordinates.second-1; i >= 0; i--) {
+        board.getBoard()[coordinates.first][i] = playingSymbol;
+        if (board.getBoard()[coordinates.first][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+    }
+}
+if (verifyHorizontalRight(coordinates, board.getBoard(), playingSymbol)) {
+    for (int i = coordinates.second+1; i < 8; i++) {
+        if (board.getBoard()[coordinates.first][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[coordinates.first][i] = playingSymbol;
+    }
+}
+if (verifyDiagonalUp(coordinates, board.getBoard(), playingSymbol)) {
+    int k = coordinates.first - 1;
+    for (int i = coordinates.second - 1; i >= 0 && k >= 0; i--) {
+        if (board.getBoard()[k][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[k][i] = playingSymbol;
+        k--;
+    }
+}
+if (verifyDiagonalDown(coordinates, board.getBoard(), playingSymbol)) {
+    int k = coordinates.first + 1;
+    for (int i = coordinates.second + 1; i < 8 && k < 8; i++) {
+        if (board.getBoard()[k][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[k][i] = playingSymbol;
+        k++;
+    }
+}
+if (verifyDiagonal2Up(coordinates, board.getBoard(), playingSymbol)) {
+    int k = coordinates.first-1;
+    for (int i = coordinates.second+1;  i < 8 && k >= 0; i++) {
+        if (board.getBoard()[k][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[k][i] = playingSymbol;
+        k--;
+    }
+}
+if (verifyDiagonal2Down(coordinates, board.getBoard(), playingSymbol)) {
+    int k = coordinates.first+1;
+    for (int i = coordinates.second-1; i >= 0 && k < 8; i--) {
+        if (board.getBoard()[k][i] ==
+        board.getBoard()[coordinates.first][coordinates.second]) {
+            break;
+        }
+        board.getBoard()[k][i] = playingSymbol;
+        k++;
+    }
+}
+}

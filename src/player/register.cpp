@@ -17,7 +17,7 @@ Registration::~Registration() {}
 std::string Registration::findPlayerLine(const std::string& nickname) {
     std::ifstream inFile(file);
     if (!inFile.is_open()) {
-        std::cerr << "ERROR: Unable to open file\n";
+        std::cerr << "ERRO: Não é possível abrir o arquivo\n";
         return "";
     }
 
@@ -36,7 +36,7 @@ std::string Registration::findPlayerLine(const std::string& nickname) {
 
 bool Registration::registerPlayer(const std::string& nickname, const std::string& name) {
     if (!findPlayerLine(nickname).empty()) {
-        std::cerr << "ERROR: Player already exists\n";
+        std::cerr << "ERRO: Apelido já existe.\n";
         return false;
     }
 
@@ -45,21 +45,21 @@ bool Registration::registerPlayer(const std::string& nickname, const std::string
         Player player(nickname, name);
         outFile << player.toCSV() << "\n";
         outFile.close();
-        std::cout << "Player " << nickname << " registered successfully\n";
+        std::cout << "Jogador " << nickname << " registrado com sucesso!\n";
         return true;
     } else {
-        std::cerr << "ERROR: Unable to open file\n";
+        std::cerr << "ERRO: Não é possível abrir o arquivo\n";
         return false;
     }
 }
 bool Registration::removePlayer(const std::string& nickname) {
     if (findPlayerLine(nickname).empty()) {
-        std::cerr << "ERROR: Player not found\n";
+        std::cerr << "ERRO: Jogador não encontrado\n";
         return false;
     }
 
     rewriteFileExcludingPlayer(nickname);
-    std::cout << "Player " << nickname << " removed successfully\n";
+    std::cout << "Jogador " << nickname << " removido com sucesso!\n";
     return true;
 }
 
@@ -82,14 +82,14 @@ void Registration::rewriteFileExcludingPlayer(const std::string& nickname) {
         std::remove(file.c_str());
         std::rename("temp.csv", file.c_str());
     } else {
-        std::cerr << "ERROR: Unable to open file(s)\n";
+        std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s)\n";
     }
 }
 
 void Registration::listPlayers(char criterion) {
     std::ifstream inFile(file);
     if (!inFile.is_open()) {
-        std::cerr << "ERROR: Unable to open file\n";
+        std::cerr << "ERRO: Não é possível abrir o arquivo.\n";
         return;
     }
 
@@ -138,15 +138,15 @@ bool Registration::updatePlayerStats(const std::string& nickname, const std::str
         std::rename("temp.csv", file.c_str());
 
         if (updated) {
-            std::cout << "Player " << nickname << "'s stats updated successfully\n";
+            std::cout << "Estatísticas do jogador " << nickname << " foram atualizadas com sucesso!\n";
             return true;
         } else {
-            std::cerr << "ERROR: Player not found\n";
+            std::cerr << "ERRO: Jogador não encontrado\n";
             return false;
         }
     }
 
-    std::cerr << "ERROR: Unable to open file(s)\n";
+    std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s)\n";
     return false;
 }
 

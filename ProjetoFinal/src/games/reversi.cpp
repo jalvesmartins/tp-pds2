@@ -174,14 +174,17 @@ bool Reversi::verifyDiagonal2Down (std::pair<int,int> play, std::vector<std::vec
 }
 
 bool Reversi::verifyPlayAdapted (std::pair<int,int> play, char& playingSymbol) {
+    //Verifica se ta dentro do tabuleiro
   if (play.first > 7 || play.second > 7 || play.first < 0 || play.second < 0) {
     std::cout << "ERRO: formato incorreto" << std::endl;
     return false;
 
+    //Verifica se tem alguma casa lá
   } else if (board.getBoard()[play.first][play.second] != ' ') {
     std::cout << "ERRO: jogada inválida, essa casa já possui uma peça" << std::endl;
     return false;
 
+    //Verifica se a jogada é válida para alguma direção
   } else if (!verifyVerticalUp(play, board.getBoard(), playingSymbol) &&
             !verifyVerticalDown(play, board.getBoard(), playingSymbol) && 
             !verifyHorizontalLeft(play, board.getBoard(), playingSymbol) &&
@@ -194,6 +197,24 @@ bool Reversi::verifyPlayAdapted (std::pair<int,int> play, char& playingSymbol) {
     std::cout << "ERRO: jogada inválida, não é posível formar uma sequência válida" << std::endl;
     return false;
 
+  } else {
+    return true;
+  }
+}
+
+bool Reversi::verifyPlayWithoutPrint (std::pair<int,int> play, char& playingSymbol) {
+    
+    //Mesma coisa da de cima, mas sem printar os erros (Feita para a verificação do fim do jogo)
+    if (    !verifyVerticalUp(play, board.getBoard(), playingSymbol) &&
+            !verifyVerticalDown(play, board.getBoard(), playingSymbol) && 
+            !verifyHorizontalLeft(play, board.getBoard(), playingSymbol) &&
+            !verifyHorizontalRight(play, board.getBoard(), playingSymbol) &&
+            !verifyDiagonalUp(play, board.getBoard(), playingSymbol) &&
+            !verifyDiagonalDown(play, board.getBoard(), playingSymbol) && 
+            !verifyDiagonal2Up(play, board.getBoard(), playingSymbol) && 
+            !verifyDiagonal2Down(play, board.getBoard(), playingSymbol)) {
+
+    return false;
   } else {
     return true;
   }

@@ -360,3 +360,12 @@ if (verifyDiagonal2Down(coordinates, board.getBoard(), playingSymbol)) {
     }
 }
 }
+
+void Reversi::switchSymbol (char& symbol) {
+  symbol = (symbol == 'X') ? 'O' : 'X';
+}
+
+
+void Reversi::switchPlayer (std::string& playing, std::pair<std::string,std::string> players) {
+  playing = (playing == players.first) ? players.second : players.first;
+}

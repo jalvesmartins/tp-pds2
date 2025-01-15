@@ -38,3 +38,21 @@ bool Reversi::verifyVerticalUp (std::pair<int,int> play, std::vector<std::vector
     }
     return false;
 }
+
+bool Reversi::verifyVerticalDown (std::pair<int,int> play, std::vector<std::vector<char>>& board, char& playingSymbol) {
+    //Verifica se é permitido uma sequencia para baixo
+    if (play.first < 6) {
+        //Verifica se o char abaixo é da cor diferente do da jogada
+        if (board[play.first + 1][play.second] != playingSymbol) {
+                //Entra em um loop até encontrar um char da mesma cor da jogada
+                for (int i = play.first + 1; i < 8; i++) {
+                    if (board[i][play.second] == ' ') {
+                        return false;
+                    } else if (board[i][play.second] == playingSymbol) {
+                        return true;
+                    }
+                }    
+                }
+    }
+    return false;
+}

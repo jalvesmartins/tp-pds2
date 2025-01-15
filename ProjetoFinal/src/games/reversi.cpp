@@ -20,3 +20,21 @@ std::pair<int, int> Reversi::readPlay () {
 
   return {playRow-1, playColumn-1};
 }
+
+bool Reversi::verifyVerticalUp (std::pair<int,int> play, std::vector<std::vector<char>>& board, char& playingSymbol) {
+    //Verifica se a jogada pode ter uma sequencia para cima
+    if (play.first > 1) {
+        //Verifica se o char acima é da cor diferente do da jogada
+        if (board[play.first - 1][play.second] != playingSymbol) {
+            //Se for uma jogada, entra em um loop até encontrar um char da mesma cor da jogada
+            for (int i = play.first - 1; i >= 0; i--) {
+                if (board[i][play.second] == ' ') {
+                    return false;
+                } else if (board[i][play.second] == playingSymbol) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}

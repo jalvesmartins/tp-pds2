@@ -17,7 +17,7 @@ public:
 
     std::string findPlayerLine(const std::string& nickname);
     bool registerPlayer(std::string& nickname, std::string& name);
-    bool removePlayer(const std::string& nickname);
+    bool removePlayer(std::string& nickname);
     void listPlayers(char criterion);
     bool updatePlayerStats(const std::string& nickname, const std::string& game, bool isWin);
 };

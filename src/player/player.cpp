@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 
+// Construtor que inicializa o jogador com apelido, nome e estatísticas padrão
 Player::Player(std::string nick, std::string nm) 
     : nickname(nick), name(nm) {
     statistics["REVERSI"] = {0, 0};
@@ -9,6 +10,7 @@ Player::Player(std::string nick, std::string nm)
     statistics["VELHA"] = {0, 0};
 }
 
+// Construtor que permite inicializar o jogador com estatísticas passadas
 Player::Player(std::string nick, std::string nm, std::map<std::string, std::pair<int, int>> stats) 
     : nickname(nick), name(nm), statistics(stats) {}
 
@@ -22,6 +24,7 @@ void Player::updateStatistics(const std::string& game, bool isWin) {
     }
 }
 
+// Converte as informações do jogador para formato CSV
 std::string Player::toCSV() const {
     std::stringstream ss;
     ss << nickname << "," << name;
@@ -31,6 +34,7 @@ std::string Player::toCSV() const {
     return ss.str();
 }
 
+// Converte uma linha CSV para um objeto Player
 Player Player::fromCSV(const std::string& line) {
     std::stringstream ss(line);
     std::string nick, nm;

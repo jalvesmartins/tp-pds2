@@ -41,6 +41,7 @@ bool Registration::registerPlayer( std::string& nickname, std::string& name) {
     while (true) {
         std::cout << "Digite o apelido: ";
         std::cin >> nickname;
+        std::cin.ignore();
 
         // Verifica se o apelido é válido
         if (!std::regex_match(nickname, validNicknamePattern)) {

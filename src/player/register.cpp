@@ -5,14 +5,29 @@
 #include <vector>
 #include <algorithm>
 #include <regex>
+#include <ctime>
 
 // Construtor (garante que o arquivo existe)
-Registration::Registration() {
+Registration::Registration(const std::string& filename) : file(filename) {
     std::ofstream outFile(file, std::ios::app);
     outFile.close();
 }
 
 Registration::~Registration() {}
+
+// Getters e setters
+std::string Registration::getFileName() const {
+    return file;
+}
+
+void Registration::setFileName(const std::string& filename) {
+    file = filename;
+}
+
+// Método auxiliar para gerar nomes temporários para arquivos
+std::string Registration::generateTempFileName() const {
+    return "temp_" + std::to_string(std::time(nullptr)) + ".csv";
+}
 
 //Metodo para encontrar um jogador no arquivo
 std::string Registration::findPlayerLine(const std::string& nickname) {
@@ -74,6 +89,7 @@ bool Registration::registerPlayer( std::string& nickname, std::string& name) {
         return false;
     }
 }
+
 bool Registration::removePlayer(std::string& nickname) {
     std::cout << "Digite o apelido do jogador a ser excluido: \n";
     while (findPlayerLine(nickname).empty()) {

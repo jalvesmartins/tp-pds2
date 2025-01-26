@@ -6,14 +6,22 @@
 
 class Registration {
 private:
-    const std::string file = "registration.csv";
+    std::string file;
 
-    // Metodo auxiliar
     void rewriteFileExcludingPlayer(const std::string& nickname);
 
+    // Metodo auxiliar para gerar nomes de arquivos temporarios
+    std::string generateTempFileName() const;
+
 public:
-    Registration();
+    // Construtor e destrutor
+    Registration(const std::string& filename = "players.csv");
     ~Registration();
+
+    // Getters e setters
+    std::string getFileName() const;
+    void setFileName(const std::string& filename);
+
 
     std::string findPlayerLine(const std::string& nickname);
     bool registerPlayer(std::string& nickname, std::string& name);

@@ -8,10 +8,10 @@ class Registration {
 private:
     std::string file;
 
-    void rewriteFileExcludingPlayer(const std::string& nickname);
-
     // Metodo auxiliar para gerar nomes de arquivos temporarios
     std::string generateTempFileName() const;
+    // Metodo auxiliar para reescrever arquivo
+    void rewriteFileExcludingPlayer(const std::string& nickname);
 
 public:
     // Construtor e destrutor
@@ -24,7 +24,7 @@ public:
 
 
     std::string findPlayerLine(const std::string& nickname);
-    bool registerPlayer(std::string& nickname, std::string& name);
+    bool registerPlayer(const std::string& nickname, std::string& name);
     bool removePlayer(std::string& nickname);
     void listPlayers(char criterion);
     bool updatePlayerStats(const std::string& nickname, const std::string& game, bool isWin);

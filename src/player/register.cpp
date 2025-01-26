@@ -102,15 +102,11 @@ bool Registration::registerPlayer( const std::string& nickname, std::string& nam
     }
 }
 
-bool Registration::removePlayer(std::string& nickname) {
-    std::cout << "Digite o apelido do jogador a ser excluido: \n";
-    while (findPlayerLine(nickname).empty()) {
-        std::cerr << "ERRO: Jogador não encontrado. Tente novamente.\n";
-        std::cin >> nickname;
-    }
+bool Registration::removePlayer(const std::string& nickname) {
+    if (findPlayerLine(nickname).empty())
+        return false;
 
     rewriteFileExcludingPlayer(nickname);
-    std::cout << "Jogador " << nickname << " removido com sucesso!\n";
     return true;
 }
 

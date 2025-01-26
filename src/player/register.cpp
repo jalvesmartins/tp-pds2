@@ -104,7 +104,8 @@ bool Registration::removePlayer(std::string& nickname) {
 
 void Registration::rewriteFileExcludingPlayer(const std::string& nickname) {
     std::ifstream inFile(file);
-    std::ofstream outFile("temp.csv");
+    std::string tempFile= generateTempFileName();
+    std::ofstream outFile(tempFile);
 
     if (inFile.is_open() && outFile.is_open()) {
         std::string line;
@@ -118,10 +119,13 @@ void Registration::rewriteFileExcludingPlayer(const std::string& nickname) {
         inFile.close();
         outFile.close();
 
-        std::remove(file.c_str());
-        std::rename("temp.csv", file.c_str());
+        if (std::remove(file.c_str()) != 0) {
+                std::cerr << "ERRO: Não foi possível remover o arquivo original.\n";
+        } else if (std::rename(tempFile.c_str(), file.c_str()) != 0) {
+                std::cerr << "ERRO: Não foi possível renomear o arquivo temporário.\n";
+            }
     } else {
-        std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s)\n";
+        std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s).\n";
     }
 }
 
@@ -157,7 +161,8 @@ void Registration::listPlayers(char criterion) {
 bool Registration::updatePlayerStats(const std::string& nickname, const std::string& game, bool isWin) {
     bool updated = false;
     std::ifstream inFile(file);
-    std::ofstream outFile("temp.csv");
+    std::string tempFile = generateTempFileName();
+    std::ofstream outFile(tempFile);
 
     if (inFile.is_open() && outFile.is_open()) {
         std::string line;
@@ -173,21 +178,21 @@ bool Registration::updatePlayerStats(const std::string& nickname, const std::str
         inFile.close();
         outFile.close();
 
-        std::remove(file.c_str());
-        std::rename("temp.csv", file.c_str());
+       if (std::remove(file.c_str()) != 0) {
+            std::cerr << "ERRO: Não foi possível remover o arquivo original.\n";
+        } else if (std::rename(tempFile.c_str(), file.c_str()) != 0) {
+            std::cerr << "ERRO: Não foi possível renomear o arquivo temporário.\n";
+        }
 
         if (updated) {
             std::cout << "Estatísticas do jogador " << nickname << " foram atualizadas com sucesso!\n";
             return true;
         } else {
-            std::cerr << "ERRO: Jogador não encontrado\n";
+            std::cerr << "ERRO: Jogador não encontrado.\n";
             return false;
         }
     }
 
-    std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s)\n";
+    std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s).\n";
     return false;
-}
-
-
-
+    }

@@ -126,12 +126,15 @@ void Registration::listPlayers(char criterion) {
 
     inFile.close();
 
-    if (criterion == 'A') {
+    if (criterion == 'N' || criterion == 'n') {
         std::sort(players.begin(), players.end(),
                   [](const Player& a, const Player& b) { return a.getName() < b.getName(); });
-    } else {
+    } else if(criterion == 'A' || criterion == 'a'){
         std::sort(players.begin(), players.end(),
                   [](const Player& a, const Player& b) { return a.getNickname() < b.getNickname(); });
+    } else {
+        std::cerr << "ERRO: Critério de listagem não existente.\n";
+        return;
     }
 
     for (const auto& player : players) {

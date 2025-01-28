@@ -48,7 +48,7 @@ void SystemOperations::handleRegisterPlayer(Registration& registry) {
     std::cout << "\nJogador " << nickname << " registrado com sucesso!\n";
 }
 
-void handleRemovePlayer(Registration& registry) {
+void SystemOperations::handleRemovePlayer(Registration& registry) {
     std::string nickname;
     bool success = false;
     std::cin.ignore();
@@ -76,7 +76,7 @@ void handleRemovePlayer(Registration& registry) {
     std::cout << "\nJogador removido com sucesso.\n";
 }
 
-void handleListPlayers(Registration& registry) {
+void SystemOperations::handleListPlayers(Registration& registry) {
     std::string criterion;
     std::cin.ignore();
     while (true) {
@@ -101,7 +101,7 @@ void handleListPlayers(Registration& registry) {
     }
 }
 
-void handleExecuteGame(Registration& registry){
+void SystemOperations::handleExecuteGame(Registration& registry){
     std::string game;
     std::cin.ignore();
 

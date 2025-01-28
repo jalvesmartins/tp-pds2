@@ -7,7 +7,7 @@
 int main() {
     try {
         Registration registry("players.csv");
-        SystemOperation gameManage;
+        SystemOperations gameManage;
         bool running = true;
 
         while (running) {

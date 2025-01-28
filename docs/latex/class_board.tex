@@ -1,0 +1,85 @@
+\doxysection{Board Class Reference}
+\hypertarget{class_board}{}\label{class_board}\index{Board@{Board}}
+
+
+{\ttfamily \#include $<$board.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}} ()
+\item 
+\mbox{\hyperlink{class_board_a921efabcf4296a12272eb96f5a1507b4}{Board}} (int rows, int columns)
+\item 
+virtual \mbox{\hyperlink{class_board_a2fba9e5428840eb48645c078b9f0dcce}{\texorpdfstring{$\sim$}{\string~}\+Board}} ()
+\item 
+int \mbox{\hyperlink{class_board_aea5fab2da45ada7e6c878b5ed43d5ea1}{get\+Rows}} ()
+\item 
+int \mbox{\hyperlink{class_board_a284d8304f915d62f320f95cd56246895}{get\+Columns}} ()
+\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \& \mbox{\hyperlink{class_board_a3162b3c393e921c357a34923816c7eea}{get\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_board_a73126c5a5fa7649cd9ee1a5aec9f8333}{make\+Play}} (std\+::pair$<$ int, int $>$ play, char symbol)
+\item 
+void \mbox{\hyperlink{class_board_aca49f093314a104381d05998bbf62f7f}{print\+Board}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_board_a9ee491d4fea680cf69b033374a9fdfcb}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_board_a9ee491d4fea680cf69b033374a9fdfcb} 
+Board\+::\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_board_a921efabcf4296a12272eb96f5a1507b4}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_board_a921efabcf4296a12272eb96f5a1507b4} 
+Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{rows}{, }\item[{int}]{columns}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_board_a2fba9e5428840eb48645c078b9f0dcce}\index{Board@{Board}!````~Board@{\texorpdfstring{$\sim$}{\string~}Board}}
+\index{````~Board@{\texorpdfstring{$\sim$}{\string~}Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Board()}{\string~Board()}}
+{\footnotesize\ttfamily \label{class_board_a2fba9e5428840eb48645c078b9f0dcce} 
+virtual Board\+::\texorpdfstring{$\sim$}{\string~}\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_board_a3162b3c393e921c357a34923816c7eea}\index{Board@{Board}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getBoard()}{getBoard()}}
+{\footnotesize\ttfamily \label{class_board_a3162b3c393e921c357a34923816c7eea} 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \& Board\+::get\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_board_a284d8304f915d62f320f95cd56246895}\index{Board@{Board}!getColumns@{getColumns}}
+\index{getColumns@{getColumns}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getColumns()}{getColumns()}}
+{\footnotesize\ttfamily \label{class_board_a284d8304f915d62f320f95cd56246895} 
+int Board\+::get\+Columns (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_board_aea5fab2da45ada7e6c878b5ed43d5ea1}\index{Board@{Board}!getRows@{getRows}}
+\index{getRows@{getRows}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getRows()}{getRows()}}
+{\footnotesize\ttfamily \label{class_board_aea5fab2da45ada7e6c878b5ed43d5ea1} 
+int Board\+::get\+Rows (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_board_a73126c5a5fa7649cd9ee1a5aec9f8333}\index{Board@{Board}!makePlay@{makePlay}}
+\index{makePlay@{makePlay}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{makePlay()}{makePlay()}}
+{\footnotesize\ttfamily \label{class_board_a73126c5a5fa7649cd9ee1a5aec9f8333} 
+void Board\+::make\+Play (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{play}{, }\item[{char}]{symbol}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_board_aca49f093314a104381d05998bbf62f7f}\index{Board@{Board}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily \label{class_board_aca49f093314a104381d05998bbf62f7f} 
+void Board\+::print\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/games/\mbox{\hyperlink{board_8hpp}{board.\+hpp}}\item 
+src/games/\mbox{\hyperlink{board_8cpp}{board.\+cpp}}\end{DoxyCompactItemize}

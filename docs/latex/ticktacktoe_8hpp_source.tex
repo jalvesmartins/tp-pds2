@@ -1,0 +1,22 @@
+\doxysection{ticktacktoe.\+hpp}
+\hypertarget{ticktacktoe_8hpp_source}{}\label{ticktacktoe_8hpp_source}\index{include/games/ticktacktoe.hpp@{include/games/ticktacktoe.hpp}}
+\mbox{\hyperlink{ticktacktoe_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{games_8hpp}{./games.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tick_tack_toe_a0f1b63dce5b886da121476934de6e109}{TickTackToe}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}\ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{class_tick_tack_toe_a0f1b63dce5b886da121476934de6e109}{TickTackToe}}\ ()\ :\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}(3,3)\ \{\}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ TickTackToe\ (int\ rows,\ int\ columns)\ \{\}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{class_tick_tack_toe_ad3876ab5e748d1ffd231ef61bb9f461e}{readPlay}}\ ()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tick_tack_toe_a114e298f0147e86241986071032886b3}{verifyPlay}}\ (std::pair<int,\ int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tick_tack_toe_a0d35a20b2b942c89e111b6c7ff879468}{verifyWin}}\ (std::pair<int,int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tick_tack_toe_abbfeccf6f70ded391d6d2e0e7ad3c0f0}{switchSymbol}}\ (\textcolor{keywordtype}{char}\&\ symbol)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tick_tack_toe_aa68d2b655f96fb54adb139af7a4d90b7}{switchPlayer}}\ (std::string\&\ playing,\ std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ \mbox{\hyperlink{class_tick_tack_toe_a62f26cd7647d14760558f186177bd390}{executeGame}}\ (std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \};}
+
+\end{DoxyCode}

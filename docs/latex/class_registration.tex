@@ -1,0 +1,109 @@
+\doxysection{Registration Class Reference}
+\hypertarget{class_registration}{}\label{class_registration}\index{Registration@{Registration}}
+
+
+{\ttfamily \#include $<$register.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_registration_a04452451024fcb05c6265708b7bf060d}{Registration}} (const std\+::string \&filename)
+\item 
+\mbox{\hyperlink{class_registration_af0515fb621bcf46276090b7b26f88fc4}{\texorpdfstring{$\sim$}{\string~}\+Registration}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_registration_ae1af98f33b7ebe09d98eb36c6bcc07df}{get\+File\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_registration_acd75536c58e34d5bd271625efe99c9ba}{set\+File\+Name}} (const std\+::string \&filename)
+\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_registration_a6991411268c0b29d0399e46e795cffd2}{find\+Player}} (const std\+::string \&nickname)
+\item 
+void \mbox{\hyperlink{class_registration_a9375cc2263827261710c696ebda7779c}{load\+Players}} ()
+\item 
+void \mbox{\hyperlink{class_registration_a0c5c79fd2e0355a2411673726723d854}{save\+Players}} ()
+\item 
+bool \mbox{\hyperlink{class_registration_a17a81927d780fcdd4b6ea95ef2c4fbe1}{register\+Player}} (const std\+::string \&nickname, const std\+::string \&name)
+\item 
+bool \mbox{\hyperlink{class_registration_a12e70c2b318881b8d6c3d8352be13596}{remove\+Player}} (const std\+::string \&nickname)
+\item 
+void \mbox{\hyperlink{class_registration_ae00f9e02f60f7f442d97be2a9d911318}{list\+Players}} (const std\+::string \&criterion)
+\item 
+bool \mbox{\hyperlink{class_registration_a122256e0c2e793d68de7e70b0f8416af}{update\+Player\+Stats}} (const std\+::string \&nickname, const std\+::string \&game, bool is\+Win)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_registration_a04452451024fcb05c6265708b7bf060d}\index{Registration@{Registration}!Registration@{Registration}}
+\index{Registration@{Registration}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{Registration()}{Registration()}}
+{\footnotesize\ttfamily \label{class_registration_a04452451024fcb05c6265708b7bf060d} 
+Registration\+::\+Registration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_af0515fb621bcf46276090b7b26f88fc4}\index{Registration@{Registration}!````~Registration@{\texorpdfstring{$\sim$}{\string~}Registration}}
+\index{````~Registration@{\texorpdfstring{$\sim$}{\string~}Registration}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Registration()}{\string~Registration()}}
+{\footnotesize\ttfamily \label{class_registration_af0515fb621bcf46276090b7b26f88fc4} 
+Registration\+::\texorpdfstring{$\sim$}{\string~}\+Registration (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_registration_a6991411268c0b29d0399e46e795cffd2}\index{Registration@{Registration}!findPlayer@{findPlayer}}
+\index{findPlayer@{findPlayer}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{findPlayer()}{findPlayer()}}
+{\footnotesize\ttfamily \label{class_registration_a6991411268c0b29d0399e46e795cffd2} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Registration\+::find\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_ae1af98f33b7ebe09d98eb36c6bcc07df}\index{Registration@{Registration}!getFileName@{getFileName}}
+\index{getFileName@{getFileName}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{getFileName()}{getFileName()}}
+{\footnotesize\ttfamily \label{class_registration_ae1af98f33b7ebe09d98eb36c6bcc07df} 
+std\+::string Registration\+::get\+File\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_registration_ae00f9e02f60f7f442d97be2a9d911318}\index{Registration@{Registration}!listPlayers@{listPlayers}}
+\index{listPlayers@{listPlayers}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{listPlayers()}{listPlayers()}}
+{\footnotesize\ttfamily \label{class_registration_ae00f9e02f60f7f442d97be2a9d911318} 
+void Registration\+::list\+Players (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{criterion}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_a9375cc2263827261710c696ebda7779c}\index{Registration@{Registration}!loadPlayers@{loadPlayers}}
+\index{loadPlayers@{loadPlayers}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{loadPlayers()}{loadPlayers()}}
+{\footnotesize\ttfamily \label{class_registration_a9375cc2263827261710c696ebda7779c} 
+void Registration\+::load\+Players (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_a17a81927d780fcdd4b6ea95ef2c4fbe1}\index{Registration@{Registration}!registerPlayer@{registerPlayer}}
+\index{registerPlayer@{registerPlayer}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{registerPlayer()}{registerPlayer()}}
+{\footnotesize\ttfamily \label{class_registration_a17a81927d780fcdd4b6ea95ef2c4fbe1} 
+bool Registration\+::register\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname}{, }\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_a12e70c2b318881b8d6c3d8352be13596}\index{Registration@{Registration}!removePlayer@{removePlayer}}
+\index{removePlayer@{removePlayer}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{removePlayer()}{removePlayer()}}
+{\footnotesize\ttfamily \label{class_registration_a12e70c2b318881b8d6c3d8352be13596} 
+bool Registration\+::remove\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_a0c5c79fd2e0355a2411673726723d854}\index{Registration@{Registration}!savePlayers@{savePlayers}}
+\index{savePlayers@{savePlayers}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{savePlayers()}{savePlayers()}}
+{\footnotesize\ttfamily \label{class_registration_a0c5c79fd2e0355a2411673726723d854} 
+void Registration\+::save\+Players (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_acd75536c58e34d5bd271625efe99c9ba}\index{Registration@{Registration}!setFileName@{setFileName}}
+\index{setFileName@{setFileName}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{setFileName()}{setFileName()}}
+{\footnotesize\ttfamily \label{class_registration_acd75536c58e34d5bd271625efe99c9ba} 
+void Registration\+::set\+File\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_registration_a122256e0c2e793d68de7e70b0f8416af}\index{Registration@{Registration}!updatePlayerStats@{updatePlayerStats}}
+\index{updatePlayerStats@{updatePlayerStats}!Registration@{Registration}}
+\doxysubsubsection{\texorpdfstring{updatePlayerStats()}{updatePlayerStats()}}
+{\footnotesize\ttfamily \label{class_registration_a122256e0c2e793d68de7e70b0f8416af} 
+bool Registration\+::update\+Player\+Stats (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nickname}{, }\item[{const std\+::string \&}]{game}{, }\item[{bool}]{is\+Win}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/player/\mbox{\hyperlink{register_8hpp}{register.\+hpp}}\item 
+src/player/\mbox{\hyperlink{register_8cpp}{register.\+cpp}}\end{DoxyCompactItemize}

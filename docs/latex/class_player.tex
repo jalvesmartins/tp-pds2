@@ -1,0 +1,120 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$player.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_ae2d4bf75351ff6a71cb47edc0a184410}{Player}} (std\+::string nick, std\+::string nm)
+\item 
+\mbox{\hyperlink{class_player_a8a74d81abc0ea05ba0a082e8426e7c79}{Player}} (std\+::string nick, std\+::string nm, std\+::map$<$ std\+::string, std\+::pair$<$ int, int $>$ $>$ stats)
+\item 
+\mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\texorpdfstring{$\sim$}{\string~}\+Player}} ()
+\item 
+void \mbox{\hyperlink{class_player_a18b3eadb8fae8a6ca12b5c53b555cb17}{set\+Nickname}} (std\+::string nick)
+\item 
+void \mbox{\hyperlink{class_player_acdc57e52902050ba740c7b150add64a8}{set\+Name}} (std\+::string nm)
+\item 
+std\+::string \mbox{\hyperlink{class_player_a047f0fa1c2220bab097a9f6329e15806}{get\+Nickname}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_player_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{get\+Name}} () const
+\item 
+std\+::map$<$ std\+::string, std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{class_player_ab1a331f1f31c79d819fc738305c7501d}{get\+Statistics}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_player_adfc91ab96180b61c1fcf3369fb4387e2}{to\+CSV}} () const
+\item 
+void \mbox{\hyperlink{class_player_a3134a53d322ff2ad883d77bac8faed7e}{update\+Statistics}} (const std\+::string \&game, bool is\+Win)
+\item 
+void \mbox{\hyperlink{class_player_aeccfc702016fb4fcdf1b3f9d383ef04a}{print\+Statistics}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_player}{Player}} \mbox{\hyperlink{class_player_a1da67e4bcf88efc38d3a47654d2f5a1f}{from\+CSV}} (const std\+::string \&line)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_ae2d4bf75351ff6a71cb47edc0a184410}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_player_ae2d4bf75351ff6a71cb47edc0a184410} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{std\+::string}]{nick}{, }\item[{std\+::string}]{nm}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_player_a8a74d81abc0ea05ba0a082e8426e7c79}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_player_a8a74d81abc0ea05ba0a082e8426e7c79} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{std\+::string}]{nick}{, }\item[{std\+::string}]{nm}{, }\item[{std\+::map$<$ std\+::string, std\+::pair$<$ int, int $>$ $>$}]{stats}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_player_a749d2c00e1fe0f5c2746f7505a58c062}\index{Player@{Player}!````~Player@{\texorpdfstring{$\sim$}{\string~}Player}}
+\index{````~Player@{\texorpdfstring{$\sim$}{\string~}Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Player()}{\string~Player()}}
+{\footnotesize\ttfamily \label{class_player_a749d2c00e1fe0f5c2746f7505a58c062} 
+Player\+::\texorpdfstring{$\sim$}{\string~}\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a1da67e4bcf88efc38d3a47654d2f5a1f}\index{Player@{Player}!fromCSV@{fromCSV}}
+\index{fromCSV@{fromCSV}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{fromCSV()}{fromCSV()}}
+{\footnotesize\ttfamily \label{class_player_a1da67e4bcf88efc38d3a47654d2f5a1f} 
+\mbox{\hyperlink{class_player}{Player}} Player\+::from\+CSV (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_player_a73e4ff2d70e62ca7e3be1d9b4ad9de85}\index{Player@{Player}!getName@{getName}}
+\index{getName@{getName}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_player_a73e4ff2d70e62ca7e3be1d9b4ad9de85} 
+std\+::string Player\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_a047f0fa1c2220bab097a9f6329e15806}\index{Player@{Player}!getNickname@{getNickname}}
+\index{getNickname@{getNickname}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getNickname()}{getNickname()}}
+{\footnotesize\ttfamily \label{class_player_a047f0fa1c2220bab097a9f6329e15806} 
+std\+::string Player\+::get\+Nickname (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_ab1a331f1f31c79d819fc738305c7501d}\index{Player@{Player}!getStatistics@{getStatistics}}
+\index{getStatistics@{getStatistics}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getStatistics()}{getStatistics()}}
+{\footnotesize\ttfamily \label{class_player_ab1a331f1f31c79d819fc738305c7501d} 
+std\+::map$<$ std\+::string, std\+::pair$<$ int, int $>$ $>$ Player\+::get\+Statistics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_aeccfc702016fb4fcdf1b3f9d383ef04a}\index{Player@{Player}!printStatistics@{printStatistics}}
+\index{printStatistics@{printStatistics}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{printStatistics()}{printStatistics()}}
+{\footnotesize\ttfamily \label{class_player_aeccfc702016fb4fcdf1b3f9d383ef04a} 
+void Player\+::print\+Statistics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_player_acdc57e52902050ba740c7b150add64a8}\index{Player@{Player}!setName@{setName}}
+\index{setName@{setName}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_player_acdc57e52902050ba740c7b150add64a8} 
+void Player\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{nm}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_a18b3eadb8fae8a6ca12b5c53b555cb17}\index{Player@{Player}!setNickname@{setNickname}}
+\index{setNickname@{setNickname}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setNickname()}{setNickname()}}
+{\footnotesize\ttfamily \label{class_player_a18b3eadb8fae8a6ca12b5c53b555cb17} 
+void Player\+::set\+Nickname (\begin{DoxyParamCaption}\item[{std\+::string}]{nick}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_adfc91ab96180b61c1fcf3369fb4387e2}\index{Player@{Player}!toCSV@{toCSV}}
+\index{toCSV@{toCSV}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{toCSV()}{toCSV()}}
+{\footnotesize\ttfamily \label{class_player_adfc91ab96180b61c1fcf3369fb4387e2} 
+std\+::string Player\+::to\+CSV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_player_a3134a53d322ff2ad883d77bac8faed7e}\index{Player@{Player}!updateStatistics@{updateStatistics}}
+\index{updateStatistics@{updateStatistics}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{updateStatistics()}{updateStatistics()}}
+{\footnotesize\ttfamily \label{class_player_a3134a53d322ff2ad883d77bac8faed7e} 
+void Player\+::update\+Statistics (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{game}{, }\item[{bool}]{is\+Win}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/player/\mbox{\hyperlink{player_8hpp}{player.\+hpp}}\item 
+src/player/\mbox{\hyperlink{player_8cpp}{player.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\doxysection{register.\+hpp}
+\hypertarget{register_8hpp_source}{}\label{register_8hpp_source}\index{include/player/register.hpp@{include/player/register.hpp}}
+\mbox{\hyperlink{register_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REGISTRATION\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REGISTRATION\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8hpp}{player.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_registration_a04452451024fcb05c6265708b7bf060d}{Registration}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ std::string\ file;}
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<Player>\ players;\ \textcolor{comment}{//\ Vetor\ de\ jogadores\ em\ memória}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Construtor\ e\ destrutor}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_registration_a04452451024fcb05c6265708b7bf060d}{Registration}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_registration_af0515fb621bcf46276090b7b26f88fc4}{\string~Registration}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Getters\ e\ setters}}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ \mbox{\hyperlink{class_registration_ae1af98f33b7ebe09d98eb36c6bcc07df}{getFileName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registration_acd75536c58e34d5bd271625efe99c9ba}{setFileName}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Funções\ principais}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_registration_a6991411268c0b29d0399e46e795cffd2}{findPlayer}}(\textcolor{keyword}{const}\ std::string\&\ nickname);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registration_a9375cc2263827261710c696ebda7779c}{loadPlayers}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registration_a0c5c79fd2e0355a2411673726723d854}{savePlayers}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_registration_a17a81927d780fcdd4b6ea95ef2c4fbe1}{registerPlayer}}(\textcolor{keyword}{const}\ std::string\&\ nickname,\ \textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_registration_a12e70c2b318881b8d6c3d8352be13596}{removePlayer}}(\textcolor{keyword}{const}\ std::string\&\ nickname);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registration_ae00f9e02f60f7f442d97be2a9d911318}{listPlayers}}(\textcolor{keyword}{const}\ std::string\&\ criterion);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_registration_a122256e0c2e793d68de7e70b0f8416af}{updatePlayerStats}}(\textcolor{keyword}{const}\ std::string\&\ nickname,\ \textcolor{keyword}{const}\ std::string\&\ game,\ \textcolor{keywordtype}{bool}\ isWin);}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ REGISTRATION\_HPP}}
+
+\end{DoxyCode}

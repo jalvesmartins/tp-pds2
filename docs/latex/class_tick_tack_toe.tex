@@ -1,0 +1,122 @@
+\doxysection{Tick\+Tack\+Toe Class Reference}
+\hypertarget{class_tick_tack_toe}{}\label{class_tick_tack_toe}\index{TickTackToe@{TickTackToe}}
+
+
+{\ttfamily \#include $<$ticktacktoe.\+hpp$>$}
+
+Inheritance diagram for Tick\+Tack\+Toe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tick_tack_toe}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tick_tack_toe_a0f1b63dce5b886da121476934de6e109}{Tick\+Tack\+Toe}} ()
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_tick_tack_toe_ad3876ab5e748d1ffd231ef61bb9f461e}{read\+Play}} () override
+\item 
+bool \mbox{\hyperlink{class_tick_tack_toe_a114e298f0147e86241986071032886b3}{verify\+Play}} (std\+::pair$<$ int, int $>$ play) override
+\item 
+bool \mbox{\hyperlink{class_tick_tack_toe_a0d35a20b2b942c89e111b6c7ff879468}{verify\+Win}} (std\+::pair$<$ int, int $>$ play) override
+\item 
+void \mbox{\hyperlink{class_tick_tack_toe_abbfeccf6f70ded391d6d2e0e7ad3c0f0}{switch\+Symbol}} (char \&symbol) override
+\item 
+void \mbox{\hyperlink{class_tick_tack_toe_aa68d2b655f96fb54adb139af7a4d90b7}{switch\+Player}} (std\+::string \&playing, std\+::pair$<$ std\+::string, std\+::string $>$ players) override
+\item 
+std\+::string \mbox{\hyperlink{class_tick_tack_toe_a62f26cd7647d14760558f186177bd390}{execute\+Game}} (std\+::pair$<$ std\+::string, std\+::string $>$ players) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_games}{Games}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}} ()
+\item 
+\mbox{\hyperlink{class_games_a75c7ba6940862e65197d8063c0c5d1f9}{Games}} (int rows, int columns)
+\item 
+virtual \mbox{\hyperlink{class_games_a6d3a2d6791affc14ebf76fb05ca1f456}{\texorpdfstring{$\sim$}{\string~}\+Games}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_games}{Games}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board}{Board}} \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tick_tack_toe_a0f1b63dce5b886da121476934de6e109}\index{TickTackToe@{TickTackToe}!TickTackToe@{TickTackToe}}
+\index{TickTackToe@{TickTackToe}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{TickTackToe()}{TickTackToe()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_a0f1b63dce5b886da121476934de6e109} 
+Tick\+Tack\+Toe\+::\+Tick\+Tack\+Toe (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tick_tack_toe_a62f26cd7647d14760558f186177bd390}\index{TickTackToe@{TickTackToe}!executeGame@{executeGame}}
+\index{executeGame@{executeGame}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{executeGame()}{executeGame()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_a62f26cd7647d14760558f186177bd390} 
+std\+::string Tick\+Tack\+Toe\+::execute\+Game (\begin{DoxyParamCaption}\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{players}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_a17bf3dffe9a147f68faf641952f3810b}{Games}}.
+
+\Hypertarget{class_tick_tack_toe_ad3876ab5e748d1ffd231ef61bb9f461e}\index{TickTackToe@{TickTackToe}!readPlay@{readPlay}}
+\index{readPlay@{readPlay}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{readPlay()}{readPlay()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_ad3876ab5e748d1ffd231ef61bb9f461e} 
+std\+::pair$<$ int, int $>$ Tick\+Tack\+Toe\+::read\+Play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_a3fe281873d598d9380b834ad08afc7be}{Games}}.
+
+\Hypertarget{class_tick_tack_toe_aa68d2b655f96fb54adb139af7a4d90b7}\index{TickTackToe@{TickTackToe}!switchPlayer@{switchPlayer}}
+\index{switchPlayer@{switchPlayer}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{switchPlayer()}{switchPlayer()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_aa68d2b655f96fb54adb139af7a4d90b7} 
+void Tick\+Tack\+Toe\+::switch\+Player (\begin{DoxyParamCaption}\item[{std\+::string \&}]{playing}{, }\item[{std\+::pair$<$ std\+::string, std\+::string $>$}]{players}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_a73b0eda3c2b3b509b7fb5dee4baff147}{Games}}.
+
+\Hypertarget{class_tick_tack_toe_abbfeccf6f70ded391d6d2e0e7ad3c0f0}\index{TickTackToe@{TickTackToe}!switchSymbol@{switchSymbol}}
+\index{switchSymbol@{switchSymbol}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{switchSymbol()}{switchSymbol()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_abbfeccf6f70ded391d6d2e0e7ad3c0f0} 
+void Tick\+Tack\+Toe\+::switch\+Symbol (\begin{DoxyParamCaption}\item[{char \&}]{symbol}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_a0977d990c939659b3a11070767036cf8}{Games}}.
+
+\Hypertarget{class_tick_tack_toe_a114e298f0147e86241986071032886b3}\index{TickTackToe@{TickTackToe}!verifyPlay@{verifyPlay}}
+\index{verifyPlay@{verifyPlay}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{verifyPlay()}{verifyPlay()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_a114e298f0147e86241986071032886b3} 
+bool Tick\+Tack\+Toe\+::verify\+Play (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{play}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_a34136fa5dc8eb3f2001a719abcb175dc}{Games}}.
+
+\Hypertarget{class_tick_tack_toe_a0d35a20b2b942c89e111b6c7ff879468}\index{TickTackToe@{TickTackToe}!verifyWin@{verifyWin}}
+\index{verifyWin@{verifyWin}!TickTackToe@{TickTackToe}}
+\doxysubsubsection{\texorpdfstring{verifyWin()}{verifyWin()}}
+{\footnotesize\ttfamily \label{class_tick_tack_toe_a0d35a20b2b942c89e111b6c7ff879468} 
+bool Tick\+Tack\+Toe\+::verify\+Win (\begin{DoxyParamCaption}\item[{std\+::pair$<$ int, int $>$}]{play}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_games_aead8a1d29d9b7cc7c5aedad192ec6cdf}{Games}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/games/\mbox{\hyperlink{ticktacktoe_8hpp}{ticktacktoe.\+hpp}}\item 
+src/games/\mbox{\hyperlink{ticktacktoe_8cpp}{ticktacktoe.\+cpp}}\end{DoxyCompactItemize}

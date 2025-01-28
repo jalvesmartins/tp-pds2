@@ -426,10 +426,10 @@ return "";
 }
 
 
-bool Reversi::verifyWin (std::pair<int,int> play) {
+bool Reversi::verifyWin ([[maybe_unused]]std::pair<int,int> play) {
     return true;
 }
 
-bool Reversi::verifyPlay (std::pair<int,int> play) {
+bool Reversi::verifyPlay ([[maybe_unused]]std::pair<int,int> play) {
     return true;
 }

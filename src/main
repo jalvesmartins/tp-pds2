@@ -1,8 +1,8 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "..\include\headers.hpp"
-#include "..\include\system_operations.hpp"
+#include "../include/headers.hpp"
+#include "../include/system_operations.hpp"
 
 int main() {
 

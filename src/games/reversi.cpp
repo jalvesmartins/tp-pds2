@@ -12,7 +12,7 @@ std::pair<int, int> Reversi::readPlay () {
         // Caso a entrada não seja válida, limpa o erro e o buffer
         std::cin.clear();  // Limpa o estado de erro
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignora o restante da linha
-        std::cout << "ERRO: Jogada inválida, insira números inteiros." << std::endl;
+        std::cout << "ERRO: Jogada invalida, insira numeros inteiros." << std::endl;
         continue;
     }
     break;
@@ -181,7 +181,7 @@ bool Reversi::verifyPlayAdapted (std::pair<int,int> play, char& playingSymbol) {
 
     //Verifica se tem alguma casa lá
   } else if (board.getBoard()[play.first][play.second] != ' ') {
-    std::cout << "ERRO: jogada inválida, essa casa já possui uma peça" << std::endl;
+    std::cout << "ERRO: jogada invalida, essa casa ja possui uma peça" << std::endl;
     return false;
 
     //Verifica se a jogada é válida para alguma direção
@@ -194,7 +194,7 @@ bool Reversi::verifyPlayAdapted (std::pair<int,int> play, char& playingSymbol) {
             !verifyDiagonal2Up(play, board.getBoard(), playingSymbol) && 
             !verifyDiagonal2Down(play, board.getBoard(), playingSymbol)) {
 
-    std::cout << "ERRO: jogada inválida, não é posível formar uma sequência válida" << std::endl;
+    std::cout << "ERRO: jogada invalida, nao e posível formar uma sequencia valida" << std::endl;
     return false;
 
   } else {
@@ -376,8 +376,8 @@ bool win = false;
 char player1 = 'X';
 char player2 = 'O';
 
-std::cout << "Símbolo do " << players.first << ": X" << std::endl;
-std::cout << "Símbolo do " << players.second << ": O" << std::endl << std::endl;
+std::cout << "Simbolo do " << players.first << ": X" << std::endl;
+std::cout << "Simbolo do " << players.second << ": O" << std::endl << std::endl;
 
 std::string player = players.first;
 char playingSymbol = 'X';
@@ -409,7 +409,7 @@ if (checkGameOver()) {
 win = true;
 std::string winner = (verifyWinSpecial() == player1) ? winner = players.first : winner = players.second;
 board.printBoard();
-std::cout << "Parabéns " << winner << ", você venceu! Execute outra partida." << std::endl << std::endl;
+std::cout << "Parabens " << winner << ", voce venceu! Execute outra partida." << std::endl << std::endl;
 return winner;
 
 //Continua a partida e troca a vez

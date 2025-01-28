@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "..\include\headers.hpp"
+#include "../include/headers.hpp"
 
 int main() {
 

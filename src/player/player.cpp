@@ -65,8 +65,14 @@ Player Player::fromCSV(const std::string& line) {
 }
 
 void Player::printStatistics() const {
-    std::cout << nickname << " " << name << std::endl;
-    for (const auto& stat : statistics) {
-        std::cout << stat.first << " - V: " << stat.second.first << " D: " << stat.second.second << std::endl;
+    std::cout << "<" << nickname << "> <" << name << ">" << std::endl;
+
+    // Ordem explícita para garantir que os jogos apareçam na ordem correta
+    std::vector<std::string> games = {"REVERSI", "LIG4", "VELHA"};
+
+    for (const auto& game : games) {
+        const auto& stat = statistics.at(game);
+        std::cout << game << " - V: " << stat.first << " D: " << stat.second << std::endl;
     }
+    std::cout << std::endl;
 }

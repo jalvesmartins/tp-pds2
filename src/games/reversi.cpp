@@ -299,11 +299,11 @@ if (verifyVerticalDown(coordinates, board.getBoard(), playingSymbol)) {
 }
 if (verifyHorizontalLeft(coordinates, board.getBoard(), playingSymbol)) {
     for (int i = coordinates.second-1; i >= 0; i--) {
-        board.getBoard()[coordinates.first][i] = playingSymbol;
         if (board.getBoard()[coordinates.first][i] ==
         board.getBoard()[coordinates.first][coordinates.second]) {
             break;
         }
+        board.getBoard()[coordinates.first][i] = playingSymbol;
     }
 }
 if (verifyHorizontalRight(coordinates, board.getBoard(), playingSymbol)) {

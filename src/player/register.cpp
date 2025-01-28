@@ -10,6 +10,9 @@
 // Construtor (garante que o arquivo existe)
 Registration::Registration(const std::string& filename) : file(filename) {
     std::ofstream outFile(file, std::ios::app);
+    if (!outFile.is_open()) {
+        std::cerr << "Erro ao criar ou abrir o arquivo: " << file << std::endl;
+    }
     outFile.close();
 }
 
@@ -24,116 +27,71 @@ void Registration::setFileName(const std::string& filename) {
     file = filename;
 }
 
-// Método auxiliar para gerar nomes temporários para arquivos
-std::string Registration::generateTempFileName() const {
-    return "temp_" + std::to_string(std::time(nullptr)) + ".csv";
-}
-
-void Registration::rewriteFileExcludingPlayer(const std::string& nickname) {
-    std::ifstream inFile(file);
-    std::string tempFile= generateTempFileName();
-    std::ofstream outFile(tempFile);
-
-    if (inFile.is_open() && outFile.is_open()) {
-        std::string line;
-        while (std::getline(inFile, line)) {
-            Player player = Player::fromCSV(line);
-            if (player.getNickname() != nickname) {
-                outFile << line << "\n";
-            }
-        }
-
-        inFile.close();
-        outFile.close();
-
-        if (std::remove(file.c_str()) != 0) {
-                std::cerr << "ERRO: Não foi possível remover o arquivo original.\n";
-        } else if (std::rename(tempFile.c_str(), file.c_str()) != 0) {
-                std::cerr << "ERRO: Não foi possível renomear o arquivo temporário.\n";
-            }
-    } else {
-        std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s).\n";
-    }
-}
-
 //Metodo para encontrar um jogador no arquivo
-std::string Registration::findPlayerLine(const std::string& nickname) {
-    std::ifstream inFile(file);
-    if (!inFile.is_open()) {
-        std::cerr << "ERRO: Não é possível abrir o arquivo\n";
-        return "";
-    }
-
-    std::string line;
-    while (std::getline(inFile, line)) {
-        Player player = Player::fromCSV(line);
+Player* Registration::findPlayer(const std::string& nickname) {
+    for (auto& player : players) {
         if (player.getNickname() == nickname) {
-            inFile.close();
-            return line; // Retorna a linha do jogador encontrado
+            return &player; // Retorna um ponteiro para o jogador encontrado
         }
     }
-
-    inFile.close();
-    return ""; // Jogador não encontrado
+    return nullptr; // Retorna nullptr se o jogador não for encontrado
 }
 
-bool Registration::registerPlayer( const std::string& nickname, std::string& name) {
-   std::regex validNicknamePattern("^[\\w]+$");
+bool Registration::registerPlayer(const std::string& nickname, const std::string& name) {
+    std::regex validNicknamePattern("^[\\w]+$");
 
     if (!std::regex_match(nickname, validNicknamePattern)) {
-        std::cerr << "ERRO: Apelido inválido. Caracteres permitidos: letras, números e underscore (_).\n";
+        std::cerr << "Apelido invalido. Caracteres permitidos: letras, numeros e underscore (_).\n";
         return false;
     }
 
-    if (!findPlayerLine(nickname).empty()) {
-        std::cerr << "ERRO: Apelido já existe.\n";
-        return false;
+    for (const auto& player : players) {
+        if (player.getNickname() == nickname) {
+            std::cerr << "Apelido ja existe.\n";
+            return false;
+        }
     }
 
-    std::ofstream outFile(file, std::ios::app); // Abre para adicionar no final do arquivo
-    if (outFile.is_open()) {
-        Player player(nickname, name);
-        outFile << player.toCSV() << "\n";
-        outFile.close();
-        return true;
-    } else {
-        std::cerr << "ERRO: Não é possível abrir o arquivo\n";
-        return false;
-    }
-}
+    // Cria um novo jogador e adiciona ao vetor
+    Player newPlayer(nickname, name);
+    players.push_back(newPlayer);
 
-bool Registration::removePlayer(const std::string& nickname) {
-    if (findPlayerLine(nickname).empty())
-        return false;
-
-    rewriteFileExcludingPlayer(nickname);
+    // Salva no arquivo
+    savePlayers();
     return true;
 }
 
-void Registration::listPlayers(char criterion) {
-    std::ifstream inFile(file);
-    if (!inFile.is_open()) {
-        std::cerr << "ERRO: Não é possível abrir o arquivo.\n";
-        return;
+//Remove um jogador
+bool Registration::removePlayer(const std::string& nickname) {
+    // Localiza o jogador pelo apelido
+    auto it = std::find_if(players.begin(), players.end(),
+                           [&nickname](const Player& player) {
+                               return player.getNickname() == nickname;
+                           });
+
+    if (it != players.end()) {
+        // Remove o jogador do vetor
+        players.erase(it);
+
+        // Salva as alterações no arquivo
+        savePlayers();
+        return true;
     }
 
-    std::vector<Player> players;
-    std::string line;
-
-    while (std::getline(inFile, line)) {
-        players.push_back(Player::fromCSV(line));
-    }
-
-    inFile.close();
-
-    if (criterion == 'N' || criterion == 'n') {
+    // Retorna falso se o jogador não foi encontrado
+    std::cerr << "ERRO: Jogador com apelido '" << nickname << "' não encontrado.\n";
+    return false;
+}
+// Lista os jogadores ordenados por um critério
+void Registration::listPlayers(const std::string& criterion) {
+    if (criterion == "N" || criterion == "n") {
         std::sort(players.begin(), players.end(),
                   [](const Player& a, const Player& b) { return a.getName() < b.getName(); });
-    } else if(criterion == 'A' || criterion == 'a'){
+    } else if (criterion == "A" || criterion == "a") {
         std::sort(players.begin(), players.end(),
                   [](const Player& a, const Player& b) { return a.getNickname() < b.getNickname(); });
     } else {
-        std::cerr << "ERRO: Critério de listagem não existente.\n";
+        std::cerr << "Criterio de listagem nao existente: " << criterion << std::endl;
         return;
     }
 
@@ -144,39 +102,56 @@ void Registration::listPlayers(char criterion) {
 
 bool Registration::updatePlayerStats(const std::string& nickname, const std::string& game, bool isWin) {
     bool updated = false;
+
+    for (auto& player : players) {
+        if (player.getNickname() == nickname) {
+            player.updateStatistics(game, isWin);
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        std::cerr << "\nERRO: Jogador nao encontrado: " << nickname << "\n";
+        return false;
+    }
+
+    // Salva as alterações no arquivo
+    savePlayers();
+    return true;
+}
+
+// Carrega os jogadores do arquivo para o vetor
+void Registration::loadPlayers() {
+    players.clear();
+
     std::ifstream inFile(file);
-    std::string tempFile = generateTempFileName();
-    std::ofstream outFile(tempFile);
+    if (!inFile.is_open()) {
+        throw std::ios_base::failure("Erro ao abrir o arquivo para leitura: " + file);
+    }
 
-    if (inFile.is_open() && outFile.is_open()) {
-        std::string line;
-        while (std::getline(inFile, line)) {
-            Player player = Player::fromCSV(line);
-            if (player.getNickname() == nickname) {
-                player.updateStatistics(game, isWin);
-                updated = true;
-            }
-            outFile << player.toCSV() << "\n";
-        }
-
-        inFile.close();
-        outFile.close();
-
-       if (std::remove(file.c_str()) != 0) {
-            std::cerr << "ERRO: Não foi possível remover o arquivo original.\n";
-        } else if (std::rename(tempFile.c_str(), file.c_str()) != 0) {
-            std::cerr << "ERRO: Não foi possível renomear o arquivo temporário.\n";
-        }
-
-        if (updated) {
-            std::cout << "Estatísticas do jogador " << nickname << " foram atualizadas com sucesso!\n";
-            return true;
-        } else {
-            std::cerr << "ERRO: Jogador não encontrado.\n";
-            return false;
+    std::string line;
+    while (std::getline(inFile, line)) {
+        if (!line.empty()) {
+            players.push_back(Player::fromCSV(line));
         }
     }
 
-    std::cerr << "ERRO: Não é possível abrir o(s) arquivo(s).\n";
-    return false;
+    inFile.close();
+}
+
+// Reescreve todo o arquivo com os dados atualizados
+void Registration::savePlayers() {
+    std::ofstream outFile(file, std::ios::out | std::ios::trunc);
+
+    if (!outFile) {
+        std::cerr << "Erro ao abrir o arquivo para escrita: " << file << std::endl;
+        return;
     }
+
+    for (const auto& player : players) {
+        outFile << player.toCSV() << "\n";
+    }
+
+    outFile.close();
+}

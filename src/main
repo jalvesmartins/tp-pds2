@@ -1,0 +1,69 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include "..\include\headers.hpp"
+
+int main() {
+
+    while (true){
+
+        std::cout << "Digite o comando. Os comandos aceitos são: \n";
+        std::cout << "CJ <Apelido> <Nome> / Para cadastro de novos jogadores" << "\n";
+        std::cout << "RJ <Apelido> / Para remoção de um jogador"<< "\n";
+        std::cout << "LJ [A|N] / Para listar jogadores por apelido ou nome, seguido pelas suas estatísticas" << "\n";
+        std::cout << "EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2> / Para iniciar uma nova partida (R: Reversi, L: Lig4, V: Jogo da Velha) \n";
+        std::cout << "FS / Para finalizar o sistema \n";
+
+        std::string line;
+        std::getline(std::cin, line);
+        std::stringstream ss(line);
+        std::string command;
+        ss >> command;
+        Registration registration;
+
+        if(command == "CJ"){
+
+            std::string nickname, name;
+            ss >> nickname;
+            std::getline(ss, name);
+            registration.registerPlayer(nickname, name);
+ 
+
+        } else if (command == "RJ"){
+            std::string nickname;
+            ss >> nickname;
+            registration.removePlayer(nickname);
+
+        } else if (command == "LF"){
+            char criterion;
+            ss >> criterion;
+            registration.listPlayers(criterion);
+
+        } else if (command == "EP"){
+            char game;
+            std::string player1, player2;
+            ss >> game >> player1 >> player2;
+            std::pair<std::string, std::string> players = {player1, player2};
+            if (game != 'R' && game != 'r' && game != 'L' && game != 'l' && game != 'V' && game != 'v') {
+                std::cerr << "ERRO: dados incorretos\n";
+                continue;
+            }
+
+            if (game == 'R' || game == 'r'){
+                Reversi reversi;
+                reversi.executeGame(players);
+            } else if (game == 'L' || game == 'l'){
+                Lig4 lig4;
+                lig4.executeGame(players);
+            } else if (game == 'V' || game == 'v'){
+                TickTackToe ticktacktoe;
+                ticktacktoe.executeGame(players);
+            }
+
+        } else if (command == "FS"){
+            std::cout << "Sistema finalizado";
+            break;
+        }
+
+    }
+}

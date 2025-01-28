@@ -1,6 +1,7 @@
 #include "player.hpp"
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 // Construtor que inicializa o jogador com apelido, nome e estatísticas padrão
 Player::Player(std::string nick, std::string nm) 

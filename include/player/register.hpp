@@ -1,33 +1,32 @@
 #ifndef REGISTRATION_HPP
 #define REGISTRATION_HPP
 
-#include <string>
 #include "player.hpp"
+#include <string>
+#include <vector>
 
 class Registration {
 private:
     std::string file;
-
-    // Metodo auxiliar para gerar nomes de arquivos temporarios
-    std::string generateTempFileName() const;
-    // Metodo auxiliar para reescrever arquivo
-    void rewriteFileExcludingPlayer(const std::string& nickname);
+    std::vector<Player> players; // Vetor de jogadores em memória
 
 public:
     // Construtor e destrutor
-    Registration(const std::string& filename = "players.csv");
+    Registration(const std::string& filename);
     ~Registration();
 
     // Getters e setters
     std::string getFileName() const;
     void setFileName(const std::string& filename);
 
-
-    std::string findPlayerLine(const std::string& nickname);
-    bool registerPlayer(const std::string& nickname, std::string& name);
+    // Funções principais
+    Player* findPlayer(const std::string& nickname);
+    void loadPlayers();
+    void savePlayers();
+    bool registerPlayer(const std::string& nickname, const std::string& name);
     bool removePlayer(const std::string& nickname);
-    void listPlayers(char criterion);
+    void listPlayers(const std::string& criterion);
     bool updatePlayerStats(const std::string& nickname, const std::string& game, bool isWin);
 };
 
-#endif
+#endif // REGISTRATION_HPP

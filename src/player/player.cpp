@@ -28,9 +28,15 @@ void Player::updateStatistics(const std::string& game, bool isWin) {
 std::string Player::toCSV() const {
     std::stringstream ss;
     ss << nickname << "," << name;
-    for (const auto& stat : statistics) {
-        ss << "," << stat.second.first << "," << stat.second.second;
+
+    // Ordem explícita para garantir que os jogos aparecem na ordem correta
+    std::vector<std::string> games = {"REVERSI", "LIG4", "VELHA"};
+
+    for (const auto& game : games) {
+        const auto& stat = statistics.at(game);
+        ss << "," << stat.first << "," << stat.second;
     }
+
     return ss.str();
 }
 

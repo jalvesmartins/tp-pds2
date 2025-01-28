@@ -12,7 +12,7 @@
             // Caso a entrada não seja válida, limpa o erro e o buffer
             std::cin.clear();  // Limpa o estado de erro
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignora o restante da linha
-            std::cout << "ERRO: Jogada inválida, insira um número inteiro." << std::endl;
+            std::cout << "ERRO: Jogada invalida, insira um numero inteiro." << std::endl;
             continue;
         }
     break;
@@ -32,7 +32,7 @@
             std::cout << "ERRO: formato incorreto" << std::endl;
             return false;
         } else if(board.getBoard()[play.first][play.second] != ' ') {
-            std::cout << "ERRO: jogada inválida" << std::endl;
+            std::cout << "ERRO: jogada invalida" << std::endl;
             return false;
         } else {
             return true;
@@ -139,8 +139,8 @@
         int playCount = 0;
         bool win = false;
 
-        std::cout << "Símbolo do" << players.first << ": X" << std::endl;
-        std::cout << "Símbolo do" << players.second << ": O" << std::endl << std::endl;
+        std::cout << "Simbolo do " << players.first << ": X" << std::endl;
+        std::cout << "Simbolo do " << players.second << ": O" << std::endl << std::endl;
 
         std::string player = players.first;
         char playingSymbol = 'X';
@@ -169,7 +169,7 @@
             if (playCount > 6 && verifyWin(coordinates)) {
             win = true;
             board.printBoard();
-            std::cout << "Parabéns " << player << ", você venceu! Execute outra partida." << std::endl << std::endl;
+            std::cout << "Parabens " << player << ", voce venceu! Execute outra partida." << std::endl << std::endl;
             return player;
 
             } else {

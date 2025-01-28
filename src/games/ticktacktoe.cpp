@@ -12,7 +12,7 @@ std::pair<int, int> TickTackToe::readPlay () {
         // Caso a entrada não seja válida, limpa o erro e o buffer
         std::cin.clear();  // Limpa o estado de erro
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignora o restante da linha
-        std::cout << "ERRO: Jogada inválida, insira números inteiros." << std::endl;
+        std::cout << "ERRO: Jogada invalida, insira numeros inteiros." << std::endl;
         continue;
     }
   break;
@@ -27,7 +27,7 @@ bool TickTackToe::verifyPlay (std::pair<int,int> play) {
     return false;
 
   } else if (board.getBoard()[play.first][play.second] != ' ') {
-    std::cout << "ERRO: jogada inválida" << std::endl;
+    std::cout << "ERRO: jogada invalida" << std::endl;
     return false;
 
   } else {
@@ -65,8 +65,8 @@ std::string TickTackToe::executeGame (std::pair<std::string,std::string> players
   int playCount = 0;
   bool win = false;
 
-  std::cout << "Símbolo do" << players.first << ": X" << std::endl;
-  std::cout << "Símbolo do" << players.second << ": O" << std::endl << std::endl;
+  std::cout << "Simbolo do " << players.first << ": X" << std::endl;
+  std::cout << "Simbolo do " << players.second << ": O" << std::endl << std::endl;
 
   std::string player = players.first;
   char playingSymbol = 'X';
@@ -90,10 +90,10 @@ std::string TickTackToe::executeGame (std::pair<std::string,std::string> players
 
     board.makePlay(coordinates, playingSymbol);
 
-    if (playCount > 4 && verifyWin(coordinates)) {
+    if (playCount > 3 && verifyWin(coordinates)) {
       win = true;
       board.printBoard();
-      std::cout << "Parabéns " << player << ", você venceu! Execute outra partida." << std::endl << std::endl;
+      std::cout << "Parabens " << player << ", voce venceu! Execute outra partida." << std::endl << std::endl;
       return player;
 
     } else {

@@ -132,5 +132,5 @@ Uma das principais dificuldades encontradas foi a manipulação do arquivo CSV p
 
 ### 2. Dificuldade para criação de testes mais complexos que envolvem acessos privados
 
-Outra dificuldade foi a criação de testes mais complexos, especialmente aqueles que envolvem a interação com métodos e atributos privados das classes. Como o sistema foi desenvolvido com encapsulamento, muitas das lógicas de negócio estavam ocultas em métodos privados, o que dificultava a escrita de testes unitários para essas partes do código. Para superar essa dificuldade, foi necessário usar técnicas como o uso de reflection ou a exposição de métodos de acesso controlado para permitir a validação correta das funcionalidades, sem comprometer a integridade da estrutura de encapsulamento.
+Outra dificuldade foi a criação de testes mais complexos, especialmente aqueles que envolvem a interação com métodos e atributos privados das classes. Como o sistema foi desenvolvido com encapsulamento, muitas das lógicas estavam ocultas em métodos privados, o que dificultava a escrita de testes unitários para essas partes do código.
 

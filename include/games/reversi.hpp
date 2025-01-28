@@ -32,6 +32,6 @@ class Reversi : public Games {
     bool verifyDiagonal2Down (std::pair<int, int> play, std::vector<std::vector<char>>& board, char& playingSymbol);
 
     //Funções que não foram usadas e não tem implementação.
-    bool verifyPlay (std::pair<int, int> play) override;
-    bool verifyWin (std::pair<int,int> play) override;
+    bool verifyPlay ([[maybe_unused]]std::pair<int, int> play) override;
+    bool verifyWin ([[maybe_unused]]std::pair<int,int> play) override;
 };

@@ -374,7 +374,6 @@ std::string Reversi::executeGame (std::pair<std::string,std::string> players) {
 int playCount = 0;
 bool win = false;
 char player1 = 'X';
-char player2 = 'O';
 
 std::cout << "Simbolo do " << players.first << ": X" << std::endl;
 std::cout << "Simbolo do " << players.second << ": O" << std::endl << std::endl;
@@ -426,10 +425,10 @@ return "";
 }
 
 
-bool Reversi::verifyWin (std::pair<int,int> play) {
+bool Reversi::verifyWin ([[maybe_unused]]std::pair<int,int> play) {
     return true;
 }
 
-bool Reversi::verifyPlay (std::pair<int,int> play) {
+bool Reversi::verifyPlay ([[maybe_unused]]std::pair<int,int> play) {
     return true;
 }

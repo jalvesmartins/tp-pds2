@@ -106,7 +106,7 @@ void SystemOperations::handleExecuteGame(Registration& registry){
     std::cin.ignore();
 
     std::cout << "\nEscolha o jogo:";
-    std::cout << "\n<REVERSI>, <LIG4> ou <VELHA> (Digite os nomes com todas as letras maiusculas, como exibido entre <>.)";
+    std::cout << "\n<REVERSI>, <LIG4> ou <VELHA> (Digite os nomes com todas as letras maiusculas, como exibido entre <>.) : ";
     std::getline(std::cin, game);
     std::cout << "\n";
 

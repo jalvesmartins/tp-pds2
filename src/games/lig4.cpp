@@ -4,7 +4,7 @@
 
 
     std::pair<int, int> Lig4::readPlay (){
-        int playRow, playColumn = 0;
+        int playColumn = 0;
 
     while (true) {
         // Verifica se a entrada é válida

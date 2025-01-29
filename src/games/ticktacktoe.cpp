@@ -81,7 +81,7 @@ std::string TickTackToe::executeGame (std::pair<std::string,std::string> players
     }
 
     std::cout << "Turno de jogador " << player << " (Linha Coluna)" << std::endl << std::endl;
-    std::pair coordinates = readPlay();
+    std::pair<int,int> coordinates = readPlay();
     bool playPossibility = verifyPlay(coordinates);
 
     if (!playPossibility) {

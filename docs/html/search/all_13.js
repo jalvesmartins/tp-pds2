@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['value_0',['value',['../structdoctest_1_1detail_1_1types_1_1true__type.html#a5ad232af56ff87690d552f77e0413f02',1,'doctest::detail::types::true_type::value'],['../structdoctest_1_1detail_1_1types_1_1false__type.html#a8580f67f4b223b10e49d93b959767f6d',1,'doctest::detail::types::false_type::value'],['../structdoctest_1_1detail_1_1types_1_1is__enum.html#a2ac322024808b91cda5ce1a42691ee07',1,'doctest::detail::types::is_enum::value'],['../structdoctest_1_1detail_1_1should__stringify__as__underlying__type.html#a0115e8b2c73fe1a0fc9f344a1374e2dd',1,'doctest::detail::should_stringify_as_underlying_type::value'],['../structdoctest_1_1_is_na_n.html#a6a490d3d5f5561bcf019fefc88291475',1,'doctest::IsNaN::value']]],
+  ['verifydiagonal2down_1',['verifyDiagonal2Down',['../class_reversi.html#ac90e6d6e61535d78270f71701da70f41',1,'Reversi']]],
+  ['verifydiagonal2up_2',['verifyDiagonal2Up',['../class_reversi.html#a639aea997e335c74b318c811db47619c',1,'Reversi']]],
+  ['verifydiagonaldown_3',['verifyDiagonalDown',['../class_reversi.html#a22ec362b7e13892d6146546c5d229a1c',1,'Reversi']]],
+  ['verifydiagonalup_4',['verifyDiagonalUp',['../class_reversi.html#ae14201ae36bc7478a58c2bfbf2ca70df',1,'Reversi']]],
+  ['verifyhorizontalleft_5',['verifyHorizontalLeft',['../class_reversi.html#aa6cf7d1e9021a13767f398e83be5dd9f',1,'Reversi']]],
+  ['verifyhorizontalright_6',['verifyHorizontalRight',['../class_reversi.html#a9c28789e484ab88e41db761e8a0bf978',1,'Reversi']]],
+  ['verifyplay_7',['verifyPlay',['../class_games.html#a34136fa5dc8eb3f2001a719abcb175dc',1,'Games::verifyPlay()'],['../class_lig4.html#af957e522836ad27bdb9ce326f30d7f73',1,'Lig4::verifyPlay()'],['../class_reversi.html#a6f66dc78b42a87171cd308b86cc05728',1,'Reversi::verifyPlay()'],['../class_tick_tack_toe.html#a114e298f0147e86241986071032886b3',1,'TickTackToe::verifyPlay()']]],
+  ['verifyplayadapted_8',['verifyPlayAdapted',['../class_reversi.html#ad495224b1b0168a60d1da9eba30a6db2',1,'Reversi']]],
+  ['verifyplaycolumn_9',['verifyPlayColumn',['../class_lig4.html#a7bd8860ae56f40999f5bfa2b9dda8f37',1,'Lig4']]],
+  ['verifyplaywithoutprint_10',['verifyPlayWithoutPrint',['../class_reversi.html#a8ef0afbe282a7d9a19ecd3603570e397',1,'Reversi']]],
+  ['verifyverticaldown_11',['verifyVerticalDown',['../class_reversi.html#a3ad423c96544d8a2c534660cddfa8a45',1,'Reversi']]],
+  ['verifyverticalup_12',['verifyVerticalUp',['../class_reversi.html#aaa266f2a591b626c8c7f994a4a15c7cb',1,'Reversi']]],
+  ['verifywin_13',['verifyWin',['../class_games.html#aead8a1d29d9b7cc7c5aedad192ec6cdf',1,'Games::verifyWin()'],['../class_lig4.html#a142f500ef9c3864790dda1af8f6a5713',1,'Lig4::verifyWin()'],['../class_reversi.html#a64b56ce54b1a53b4b5b400009cda49d1',1,'Reversi::verifyWin()'],['../class_tick_tack_toe.html#a0d35a20b2b942c89e111b6c7ff879468',1,'TickTackToe::verifyWin()']]],
+  ['verifywinspecial_14',['verifyWinSpecial',['../class_reversi.html#ac6895cd2d03e4e7a0a2b75586140e2fa',1,'Reversi']]],
+  ['version_15',['version',['../structdoctest_1_1_context_options.html#a08931527a9e5e634e64a336e5493a7c1',1,'doctest::ContextOptions']]]
+];

@@ -1,0 +1,43 @@
+\doxysection{reversi.\+hpp}
+\hypertarget{reversi_8hpp_source}{}\label{reversi_8hpp_source}\index{include/games/reversi.hpp@{include/games/reversi.hpp}}
+\mbox{\hyperlink{reversi_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{games_8hpp}{./games.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}{Reversi}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}\ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}{Reversi}}\ ()\ :\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}(8,8)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}}.getBoard()[3][3]\ =\ \textcolor{charliteral}{'O'};}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}}.getBoard()[3][4]\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}}.getBoard()[4][3]\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}}.getBoard()[4][4]\ =\ \textcolor{charliteral}{'O'};}
+\DoxyCodeLine{00012\ \ \ \ \ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{class_reversi_aca33704d32204f7709c4529881bd58ab}{readPlay}}\ ()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_ad495224b1b0168a60d1da9eba30a6db2}{verifyPlayAdapted}}\ (std::pair<int,\ int>\ play,\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a8ef0afbe282a7d9a19ecd3603570e397}{verifyPlayWithoutPrint}}\ (std::pair<int,\ int>\ play,\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_reversi_ac6895cd2d03e4e7a0a2b75586140e2fa}{verifyWinSpecial}}\ ();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a9c39aa65d39b04b7cb4a1f619b954efe}{makePlay}}\ (std::pair<int,int>coordinates,\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_ae7d423487a95df2fb525289e64126807}{checkGameOver}}\ ();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a1b4cfd38d87838f190616bac17630e81}{switchSymbol}}\ (\textcolor{keywordtype}{char}\&\ playingSymbol)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a75604faf66017e5cf7c8d9dbf0a6bcc8}{switchPlayer}}\ (std::string\&\ playing,\ std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ \mbox{\hyperlink{class_reversi_a35eb18a853b20cc5b3692cd19b91a2b5}{executeGame}}\ (std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//Funções\ de\ verificação\ interna\ do\ jogo}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_aaa266f2a591b626c8c7f994a4a15c7cb}{verifyVerticalUp}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a3ad423c96544d8a2c534660cddfa8a45}{verifyVerticalDown}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_aa6cf7d1e9021a13767f398e83be5dd9f}{verifyHorizontalLeft}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a9c28789e484ab88e41db761e8a0bf978}{verifyHorizontalRight}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_ae14201ae36bc7478a58c2bfbf2ca70df}{verifyDiagonalUp}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a22ec362b7e13892d6146546c5d229a1c}{verifyDiagonalDown}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a639aea997e335c74b318c811db47619c}{verifyDiagonal2Up}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_ac90e6d6e61535d78270f71701da70f41}{verifyDiagonal2Down}}\ (std::pair<int,\ int>\ play,\ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_games_a34a588072c5135d89bac6f73e4d0b02d}{board}},\ \textcolor{keywordtype}{char}\&\ playingSymbol);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//Funções\ que\ não\ foram\ usadas\ e\ não\ tem\ implementação.}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a6f66dc78b42a87171cd308b86cc05728}{verifyPlay}}\ ([[maybe\_unused]]std::pair<int,\ int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a64b56ce54b1a53b4b5b400009cda49d1}{verifyWin}}\ ([[maybe\_unused]]std::pair<int,int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \};}
+
+\end{DoxyCode}

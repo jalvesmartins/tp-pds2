@@ -1,0 +1,34 @@
+\doxysection{board.\+hpp}
+\hypertarget{board_8hpp_source}{}\label{board_8hpp_source}\index{include/games/board.hpp@{include/games/board.hpp}}
+\mbox{\hyperlink{board_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ std::vector<std::vector<char>>\ board;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rows;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ columns;}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}}\ ()\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}ERRO:\ Tamanho\ inválido\ de\ tabuleiro"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a921efabcf4296a12272eb96f5a1507b4}{Board}}\ (\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ columns)\ :\ rows(rows),\ columns(columns)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ board.resize(rows,\ std::vector<char>(columns,\ \textcolor{charliteral}{'\ '}));}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_board_a2fba9e5428840eb48645c078b9f0dcce}{\string~Board}}()\ \{\}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_aea5fab2da45ada7e6c878b5ed43d5ea1}{getRows}}\ ();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_a284d8304f915d62f320f95cd56246895}{getColumns}}\ ();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ std::vector<std::vector<char>>\&\ \mbox{\hyperlink{class_board_a3162b3c393e921c357a34923816c7eea}{getBoard}}\ ();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a73126c5a5fa7649cd9ee1a5aec9f8333}{makePlay}}\ (std::pair<int,int>\ play,\ \textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_aca49f093314a104381d05998bbf62f7f}{printBoard}}\ ();}
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}

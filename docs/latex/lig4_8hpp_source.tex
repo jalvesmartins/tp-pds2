@@ -1,0 +1,23 @@
+\doxysection{lig4.\+hpp}
+\hypertarget{lig4_8hpp_source}{}\label{lig4_8hpp_source}\index{include/games/lig4.hpp@{include/games/lig4.hpp}}
+\mbox{\hyperlink{lig4_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{games_8hpp}{./games.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_lig4_adffdeddf3d20829f752913801554126d}{Lig4}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}\ \{}
+\DoxyCodeLine{00006\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{class_lig4_adffdeddf3d20829f752913801554126d}{Lig4}}\ ()\ :\ \mbox{\hyperlink{class_games_a1e7ca3ddd65efd78cf81e26f028c2c0e}{Games}}(6,7)\ \{\}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ Lig4\ (int\ rows,\ int\ columns)\ \{\}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ std::pair<int,\ int>\ \mbox{\hyperlink{class_lig4_a96e9a1bb2e2a20c8f46d027150a4e0f2}{readPlay}}\ ()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_lig4_af957e522836ad27bdb9ce326f30d7f73}{verifyPlay}}\ (std::pair<int,\ int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{class_lig4_a7bd8860ae56f40999f5bfa2b9dda8f37}{verifyPlayColumn}}(std::pair<int,\ int>\ play);}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_lig4_a142f500ef9c3864790dda1af8f6a5713}{verifyWin}}\ (std::pair<int,int>\ play)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lig4_a923d134544dc2ab49bcf78c264684724}{switchSymbol}}\ (\textcolor{keywordtype}{char}\&\ symbol)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lig4_aa45889c3eeaf6ad7b3d51e660fcb70a7}{switchPlayer}}\ (std::string\&\ playing,\ std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{class_lig4_a63fd8887ce433d298064f56081ea8cc5}{executeGame}}\ (std::pair<std::string,std::string>\ players)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \};}
+
+\end{DoxyCode}

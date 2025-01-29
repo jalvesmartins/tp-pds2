@@ -393,7 +393,7 @@ return "";
 
 //Lê a jogada e verifica ela
 std::cout << "Turno de jogador " << player << " (Linha Coluna)" << std::endl << std::endl;
-std::pair coordinates = readPlay();
+std::pair<int,int> coordinates = readPlay();
 bool playPossibility = verifyPlayAdapted(coordinates, playingSymbol);
 
 if (!playPossibility) {

@@ -48,8 +48,7 @@ tests: $(TEST_EXEC)
 	./$(TEST_EXEC)
 
 $(TEST_EXEC): $(TEST_OBJ)
-	$(CXX) $(TEST_OBJ) -o $(TEST_EXEC)
+	$(CXX) $(TEST_OBJ) src/games/board.cpp src/games/ticktacktoe.cpp -o $(TEST_EXEC)
 
 $(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-

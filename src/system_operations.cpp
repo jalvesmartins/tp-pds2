@@ -106,12 +106,12 @@ void SystemOperations::handleExecuteGame(Registration& registry){
     std::cin.ignore();
 
     std::cout << "\nEscolha o jogo:";
-    std::cout << "\n<REVERSI>, <LIG4> ou <VELHA> (Digite os nomes com todas as letras maiusculas, como exibido entre <>.) : ";
+    std::cout << "\n<REVERSI>, <LIG4> ou <VELHA> (Digite os nomes com todas as letras maiusculas, como exibido entre <>.): ";
     std::getline(std::cin, game);
     std::cout << "\n";
 
     if (game != "REVERSI" && game != "LIG4" && game != "VELHA") {
-        std::cerr << "ERRO: dados incorretos\n";
+        std::cerr << "ERRO: Dados incorretos, use lestras maiusculas.\n";
         return;
     }
 
@@ -126,12 +126,12 @@ void SystemOperations::handleExecuteGame(Registration& registry){
     Player* player2Data = registry.findPlayer(player2);
 
     if (!player1Data) {
-    std::cerr << "ERRO: Jogador 1 (" << player1 << ") não está cadastrado.\n";
+    std::cerr << "ERRO: Jogador 1 (" << player1 << ") nao esta cadastrado.\n";
     return;
     }
 
     if (!player2Data) {
-    std::cerr << "ERRO: Jogador 2 (" << player2 << ") não está cadastrado.\n";
+    std::cerr << "ERRO: Jogador 2 (" << player2 << ") nao esta cadastrado.\n";
     return;
     }
 
@@ -144,7 +144,7 @@ void SystemOperations::handleExecuteGame(Registration& registry){
         std::string winner, loser;
         winner = reversi.executeGame(players);
         if (winner == "") {
-            std::cout << "O jogo terminou em empate! Nenhuma pontuação será atualizada.\n";
+            std::cout << "O jogo terminou em empate! Nenhuma pontuacao sera atualizada.\n";
             return;
         }
         
@@ -160,7 +160,7 @@ void SystemOperations::handleExecuteGame(Registration& registry){
         std::string winner, loser;
         winner = lig4.executeGame(players);
         if (winner == "") {
-            std::cout << "O jogo terminou em empate! Nenhuma pontuação será atualizada.\n";
+            std::cout << "O jogo terminou em empate! Nenhuma pontuacao sera atualizada.\n";
             return;
         }
 
@@ -176,7 +176,7 @@ void SystemOperations::handleExecuteGame(Registration& registry){
         std::string winner, loser;
         winner = ticktacktoe.executeGame(players);
         if (winner == "") {
-            std::cout << "O jogo terminou em empate! Nenhuma pontuação será atualizada.\n";
+            std::cout << "O jogo terminou em empate! Nenhuma pontuacao sera atualizada.\n";
             return;
         }
 

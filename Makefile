@@ -40,6 +40,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 # Limpar arquivos compilados
 clean:
 	rm -rf $(OBJ_DIR)/*.o $(EXEC) $(TEST_EXEC)
+	rm -rf $(OBJ_DIR)/games/*.o $(EXEC) $(TEST_EXEC)
+	rm -rf $(OBJ_DIR)/player/*.o $(EXEC) $(TEST_EXEC)
+	rm -rf bin/players.csv
 
 # Instruções para rodar os testes
 tests: $(TEST_EXEC)

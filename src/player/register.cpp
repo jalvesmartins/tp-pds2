@@ -84,6 +84,8 @@ bool Registration::removePlayer(const std::string& nickname) {
 }
 // Lista os jogadores ordenados por um critério
 void Registration::listPlayers(const std::string& criterion) {
+    void loadPlayers();
+    
     if (criterion == "N" || criterion == "n") {
         std::sort(players.begin(), players.end(),
                   [](const Player& a, const Player& b) { return a.getName() < b.getName(); });
